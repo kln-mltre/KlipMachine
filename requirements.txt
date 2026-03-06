@@ -1,0 +1,13 @@
+faster_whisper
+groq
+numpy
+openai
+opencv_python
+pandas
+Pillow
+python-dotenv
+Requests
+setuptools
+streamlit
+torch
+yt_dlp

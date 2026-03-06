@@ -1,0 +1,25 @@
+[theme]
+primaryColor = "#6366f1"
+
+backgroundColor = "#0e1117"
+
+secondaryBackgroundColor = "#1f2937"
+
+textColor = "#e7dfdfff"
+
+font = "sans serif"
+
+[client]
+toolbarMode = "viewer"
+showErrorDetails = false
+
+[browser]
+pageTitle = "KlipMachine"
+pageIcon = "✂️"
+
+[server]
+maxUploadSize = 10000
+maxMessageSize = 10000
+
+[ui]
+hideTopBar = true

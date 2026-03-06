@@ -1,0 +1,5038 @@
+{
+  "language": "en",
+  "duration": 282.96,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.3,
+      "text": "So have you ever wondered how these free or open source software actually make money?"
+    },
+    {
+      "start": 4.7,
+      "end": 9.82,
+      "text": "I mean, millions of people use these software, but still the companies are giving it away for free."
+    },
+    {
+      "start": 10.2,
+      "end": 12.72,
+      "text": "So the question is, do you really pay nothing in exchange?"
+    },
+    {
+      "start": 13.1,
+      "end": 15.5,
+      "text": "Or are you trading something even more valuable?"
+    },
+    {
+      "start": 15.8,
+      "end": 19.34,
+      "text": "And the real question is, how are these companies making millions out of it?"
+    },
+    {
+      "start": 19.58,
+      "end": 22.06,
+      "text": "If you want an answer to these questions, then stick around."
+    },
+    {
+      "start": 22.32,
+      "end": 26.94,
+      "text": "In this video, I'm going to talk about the business model of these free software companies."
+    },
+    {
+      "start": 26.94,
+      "end": 31.04,
+      "text": "And once you see how it really makes money, you'll never look at it the same way again."
+    },
+    {
+      "start": 31.38,
+      "end": 34.88,
+      "text": "So before we talk about money, we need to clear up one big misunderstanding."
+    },
+    {
+      "start": 35.58,
+      "end": 39.18,
+      "text": "When we say a software is free, it doesn't always mean the same thing."
+    },
+    {
+      "start": 39.44,
+      "end": 41.84,
+      "text": "In tech, there are actually two meanings of free."
+    },
+    {
+      "start": 42.18,
+      "end": 44.22,
+      "text": "The first is free as in beer."
+    },
+    {
+      "start": 44.58,
+      "end": 46.44,
+      "text": "That simply means you don't pay to use it."
+    },
+    {
+      "start": 46.62,
+      "end": 49.14,
+      "text": "Just download, install, and you are good to go."
+    },
+    {
+      "start": 49.52,
+      "end": 50.48,
+      "text": "No credit card required."
+    },
+    {
+      "start": 50.86,
+      "end": 54.26,
+      "text": "Some examples are Zoom, Spotify, and VS Code."
+    },
+    {
+      "start": 54.26,
+      "end": 57.08,
+      "text": "The second type is free as in speech."
+    },
+    {
+      "start": 57.62,
+      "end": 59.48,
+      "text": "This is about freedom, not price."
+    },
+    {
+      "start": 59.88,
+      "end": 63.24,
+      "text": "You're free to view the source code, modify it, and build on top of it."
+    },
+    {
+      "start": 63.46,
+      "end": 64.58,
+      "text": "A great example is Linux."
+    },
+    {
+      "start": 64.98,
+      "end": 67.66,
+      "text": "Linux is completely free as in speech."
+    },
+    {
+      "start": 68.1,
+      "end": 71.8,
+      "text": "It is an open source operating system for simplicity in this video."
+    },
+    {
+      "start": 72.06,
+      "end": 77.06,
+      "text": "I'll call the first type free software and the second type of open source software."
+    },
+    {
+      "start": 77.34,
+      "end": 79.24,
+      "text": "Now let's talk about how these actually make money."
+    },
+    {
+      "start": 79.42,
+      "end": 82.26,
+      "text": "So there are five common ways these software can make money."
+    },
+    {
+      "start": 82.26,
+      "end": 85.64,
+      "text": "Let's go through it one by one and I want to start with the most sketchy method."
+    },
+    {
+      "start": 86.04,
+      "end": 87.2,
+      "text": "Data monetization."
+    },
+    {
+      "start": 87.54,
+      "end": 89.76,
+      "text": "So this is uncommon for open source software,"
+    },
+    {
+      "start": 90.02,
+      "end": 93.5,
+      "text": "but common for free software that is hosted by the companies themselves."
+    },
+    {
+      "start": 93.98,
+      "end": 95.62,
+      "text": "So some software tracks what you do."
+    },
+    {
+      "start": 95.9,
+      "end": 101.26,
+      "text": "They collect anonymized data about your clicks, searches, and habits when you are using the app."
+    },
+    {
+      "start": 101.54,
+      "end": 106.5,
+      "text": "Social media, free AI chatbots, and even some productivity tools do this."
+    },
+    {
+      "start": 106.82,
+      "end": 111.18,
+      "text": "They use that data to improve their product or even sell data to advertisers."
+    },
+    {
+      "start": 111.18,
+      "end": 115.1,
+      "text": "In simple terms, if you're not paying with money, you're paying with your data."
+    },
+    {
+      "start": 115.36,
+      "end": 117.42,
+      "text": "But of course, they're not doing this illegally."
+    },
+    {
+      "start": 117.86,
+      "end": 121.86,
+      "text": "You give them consent by accepting the terms and conditions before using the app."
+    },
+    {
+      "start": 122.08,
+      "end": 123.74,
+      "text": "So they aren't technically the bad guys here."
+    },
+    {
+      "start": 124.08,
+      "end": 126.72,
+      "text": "So the next way is open source plus paid support."
+    },
+    {
+      "start": 127.22,
+      "end": 129.0,
+      "text": "This idea is my favorite."
+    },
+    {
+      "start": 129.42,
+      "end": 132.9,
+      "text": "So as I said already, open source software is the one that you can see,"
+    },
+    {
+      "start": 133.28,
+      "end": 136.2,
+      "text": "modify the code as you need, completely for free."
+    },
+    {
+      "start": 136.42,
+      "end": 139.48,
+      "text": "So there are companies built around these open source projects."
+    },
+    {
+      "start": 139.48,
+      "end": 140.94,
+      "text": "Take Linux, for example."
+    },
+    {
+      "start": 141.28,
+      "end": 146.22,
+      "text": "It is an open source project, but companies like Red Hat customized the open source Linux"
+    },
+    {
+      "start": 146.22,
+      "end": 148.1,
+      "text": "and provided it to the customers."
+    },
+    {
+      "start": 148.66,
+      "end": 152.54,
+      "text": "The software itself is free, but if you want 24 seven expert support,"
+    },
+    {
+      "start": 152.8,
+      "end": 156.04,
+      "text": "manage hosting or enterprise features, you need to pay."
+    },
+    {
+      "start": 156.44,
+      "end": 160.5,
+      "text": "In simple words, the software is free, but getting the help isn't."
+    },
+    {
+      "start": 160.6,
+      "end": 162.72,
+      "text": "And that's how companies like Red Hat are money."
+    },
+    {
+      "start": 162.9,
+      "end": 166.04,
+      "text": "So that brings us to our third method, freemium model."
+    },
+    {
+      "start": 166.16,
+      "end": 167.4,
+      "text": "And I think you already know this."
+    },
+    {
+      "start": 167.4,
+      "end": 171.86,
+      "text": "Software like zoom, Spotify or YouTube has a free version."
+    },
+    {
+      "start": 172.16,
+      "end": 174.5,
+      "text": "And if you want some extra features, you just need to pay for them."
+    },
+    {
+      "start": 174.7,
+      "end": 175.32,
+      "text": "That's one method."
+    },
+    {
+      "start": 175.62,
+      "end": 179.0,
+      "text": "Another way is that some software also has credit based models."
+    },
+    {
+      "start": 179.32,
+      "end": 183.3,
+      "text": "Like when you sign up, you get some credits to use the software until they run out."
+    },
+    {
+      "start": 183.44,
+      "end": 186.44,
+      "text": "And then you need to buy more credits to use like the cursor code editor"
+    },
+    {
+      "start": 186.44,
+      "end": 188.56,
+      "text": "or most of these AI SAS tools."
+    },
+    {
+      "start": 188.88,
+      "end": 191.56,
+      "text": "So that's the freemium model and the most popular method."
+    },
+    {
+      "start": 191.86,
+      "end": 195.24,
+      "text": "In addition to this, the next way is by showing ads."
+    },
+    {
+      "start": 195.24,
+      "end": 199.56,
+      "text": "So you might have noticed when you're using any mobile app or browsing a website,"
+    },
+    {
+      "start": 199.82,
+      "end": 201.58,
+      "text": "you get these ads thrown in your face."
+    },
+    {
+      "start": 201.98,
+      "end": 205.82,
+      "text": "And these companies take money from other companies to show their ads on their website."
+    },
+    {
+      "start": 206.14,
+      "end": 211.6,
+      "text": "Apart from that, companies also use AdSense, allowing Google to show ads on their website"
+    },
+    {
+      "start": 211.6,
+      "end": 212.92,
+      "text": "and make money out of it."
+    },
+    {
+      "start": 213.26,
+      "end": 215.78,
+      "text": "In short, if you aren't paying money, you're the product."
+    },
+    {
+      "start": 216.0,
+      "end": 220.38,
+      "text": "So that brings me to the last method and only a few software can earn from this."
+    },
+    {
+      "start": 220.8,
+      "end": 222.48,
+      "text": "Donations and crowdfunding."
+    },
+    {
+      "start": 222.48,
+      "end": 227.26,
+      "text": "So some softwares have loyal users and they donate and fund the software they use."
+    },
+    {
+      "start": 227.66,
+      "end": 231.3,
+      "text": "Projects like Wikipedia and Blender are funded by their community."
+    },
+    {
+      "start": 231.64,
+      "end": 234.9,
+      "text": "People voluntarily donate because they believe in the project."
+    },
+    {
+      "start": 235.2,
+      "end": 239.56,
+      "text": "It doesn't sound scalable, but when millions of users want to contribute, it works."
+    },
+    {
+      "start": 240.04,
+      "end": 244.08,
+      "text": "So these are the five main ways free and open source software makes money."
+    },
+    {
+      "start": 244.52,
+      "end": 248.06,
+      "text": "And just because software is free doesn't mean it comes without a cost."
+    },
+    {
+      "start": 248.28,
+      "end": 251.76,
+      "text": "Even if you don't pay from your bank account, you're still paying with your time,"
+    },
+    {
+      "start": 251.76,
+      "end": 253.44,
+      "text": "your attention and your data."
+    },
+    {
+      "start": 253.92,
+      "end": 257.86,
+      "text": "And once you rely heavily on a tool, switching later can be painful."
+    },
+    {
+      "start": 258.1,
+      "end": 260.44,
+      "text": "So these free software aren't always free."
+    },
+    {
+      "start": 260.76,
+      "end": 262.64,
+      "text": "You're just paying in ways you might not notice."
+    },
+    {
+      "start": 263.0,
+      "end": 264.36,
+      "text": "So that wraps up this video."
+    },
+    {
+      "start": 264.68,
+      "end": 268.22,
+      "text": "By the way, if you want to level up your development skills by building some real"
+    },
+    {
+      "start": 268.22,
+      "end": 270.66,
+      "text": "world projects, check out Code Crafters."
+    },
+    {
+      "start": 270.82,
+      "end": 275.74,
+      "text": "You get to build things like Git, Redis, or even an HTTP server from scratch."
+    },
+    {
+      "start": 276.3,
+      "end": 277.52,
+      "text": "The link is in the description."
+    },
+    {
+      "start": 277.9,
+      "end": 281.34,
+      "text": "If you enjoyed this video, make sure to like, share and subscribe."
+    },
+    {
+      "start": 281.76,
+      "end": 282.96,
+      "text": "And I'll see you in the next one."
+    }
+  ],
+  "words": [
+    {
+      "word": "So",
+      "start": 0.0,
+      "end": 0.28
+    },
+    {
+      "word": "have",
+      "start": 0.28,
+      "end": 0.38
+    },
+    {
+      "word": "you",
+      "start": 0.38,
+      "end": 0.48
+    },
+    {
+      "word": "ever",
+      "start": 0.48,
+      "end": 0.66
+    },
+    {
+      "word": "wondered",
+      "start": 0.66,
+      "end": 0.9
+    },
+    {
+      "word": "how",
+      "start": 0.9,
+      "end": 1.14
+    },
+    {
+      "word": "these",
+      "start": 1.14,
+      "end": 1.32
+    },
+    {
+      "word": "free",
+      "start": 1.32,
+      "end": 1.84
+    },
+    {
+      "word": "or",
+      "start": 1.84,
+      "end": 2.12
+    },
+    {
+      "word": "open",
+      "start": 2.12,
+      "end": 2.52
+    },
+    {
+      "word": "source",
+      "start": 2.52,
+      "end": 2.78
+    },
+    {
+      "word": "software",
+      "start": 2.78,
+      "end": 3.36
+    },
+    {
+      "word": "actually",
+      "start": 3.36,
+      "end": 3.84
+    },
+    {
+      "word": "make",
+      "start": 3.84,
+      "end": 4.06
+    },
+    {
+      "word": "money?",
+      "start": 4.06,
+      "end": 4.3
+    },
+    {
+      "word": "I",
+      "start": 4.7,
+      "end": 4.72
+    },
+    {
+      "word": "mean,",
+      "start": 4.72,
+      "end": 4.94
+    },
+    {
+      "word": "millions",
+      "start": 5.06,
+      "end": 5.44
+    },
+    {
+      "word": "of",
+      "start": 5.44,
+      "end": 5.68
+    },
+    {
+      "word": "people",
+      "start": 5.68,
+      "end": 5.9
+    },
+    {
+      "word": "use",
+      "start": 5.9,
+      "end": 6.2
+    },
+    {
+      "word": "these",
+      "start": 6.2,
+      "end": 6.34
+    },
+    {
+      "word": "software,",
+      "start": 6.34,
+      "end": 6.9
+    },
+    {
+      "word": "but",
+      "start": 7.14,
+      "end": 7.32
+    },
+    {
+      "word": "still",
+      "start": 7.32,
+      "end": 7.76
+    },
+    {
+      "word": "the",
+      "start": 7.76,
+      "end": 8.1
+    },
+    {
+      "word": "companies",
+      "start": 8.1,
+      "end": 8.42
+    },
+    {
+      "word": "are",
+      "start": 8.42,
+      "end": 8.6
+    },
+    {
+      "word": "giving",
+      "start": 8.6,
+      "end": 8.8
+    },
+    {
+      "word": "it",
+      "start": 8.8,
+      "end": 8.94
+    },
+    {
+      "word": "away",
+      "start": 8.94,
+      "end": 9.2
+    },
+    {
+      "word": "for",
+      "start": 9.2,
+      "end": 9.44
+    },
+    {
+      "word": "free.",
+      "start": 9.44,
+      "end": 9.82
+    },
+    {
+      "word": "So",
+      "start": 10.2,
+      "end": 10.26
+    },
+    {
+      "word": "the",
+      "start": 10.26,
+      "end": 10.36
+    },
+    {
+      "word": "question",
+      "start": 10.36,
+      "end": 10.7
+    },
+    {
+      "word": "is,",
+      "start": 10.7,
+      "end": 11.06
+    },
+    {
+      "word": "do",
+      "start": 11.22,
+      "end": 11.34
+    },
+    {
+      "word": "you",
+      "start": 11.34,
+      "end": 11.46
+    },
+    {
+      "word": "really",
+      "start": 11.46,
+      "end": 11.66
+    },
+    {
+      "word": "pay",
+      "start": 11.66,
+      "end": 11.88
+    },
+    {
+      "word": "nothing",
+      "start": 11.88,
+      "end": 12.18
+    },
+    {
+      "word": "in",
+      "start": 12.18,
+      "end": 12.34
+    },
+    {
+      "word": "exchange?",
+      "start": 12.34,
+      "end": 12.72
+    },
+    {
+      "word": "Or",
+      "start": 13.1,
+      "end": 13.34
+    },
+    {
+      "word": "are",
+      "start": 13.34,
+      "end": 13.46
+    },
+    {
+      "word": "you",
+      "start": 13.46,
+      "end": 13.56
+    },
+    {
+      "word": "trading",
+      "start": 13.56,
+      "end": 13.94
+    },
+    {
+      "word": "something",
+      "start": 13.94,
+      "end": 14.36
+    },
+    {
+      "word": "even",
+      "start": 14.36,
+      "end": 14.82
+    },
+    {
+      "word": "more",
+      "start": 14.82,
+      "end": 15.08
+    },
+    {
+      "word": "valuable?",
+      "start": 15.08,
+      "end": 15.5
+    },
+    {
+      "word": "And",
+      "start": 15.8,
+      "end": 15.88
+    },
+    {
+      "word": "the",
+      "start": 15.88,
+      "end": 15.96
+    },
+    {
+      "word": "real",
+      "start": 15.96,
+      "end": 16.14
+    },
+    {
+      "word": "question",
+      "start": 16.14,
+      "end": 16.54
+    },
+    {
+      "word": "is,",
+      "start": 16.54,
+      "end": 16.9
+    },
+    {
+      "word": "how",
+      "start": 17.12,
+      "end": 17.38
+    },
+    {
+      "word": "are",
+      "start": 17.38,
+      "end": 17.46
+    },
+    {
+      "word": "these",
+      "start": 17.46,
+      "end": 17.58
+    },
+    {
+      "word": "companies",
+      "start": 17.58,
+      "end": 17.9
+    },
+    {
+      "word": "making",
+      "start": 17.9,
+      "end": 18.3
+    },
+    {
+      "word": "millions",
+      "start": 18.3,
+      "end": 18.82
+    },
+    {
+      "word": "out",
+      "start": 18.82,
+      "end": 19.1
+    },
+    {
+      "word": "of",
+      "start": 19.1,
+      "end": 19.22
+    },
+    {
+      "word": "it?",
+      "start": 19.22,
+      "end": 19.34
+    },
+    {
+      "word": "If",
+      "start": 19.58,
+      "end": 19.72
+    },
+    {
+      "word": "you",
+      "start": 19.72,
+      "end": 19.8
+    },
+    {
+      "word": "want",
+      "start": 19.8,
+      "end": 19.9
+    },
+    {
+      "word": "an",
+      "start": 19.9,
+      "end": 19.96
+    },
+    {
+      "word": "answer",
+      "start": 19.96,
+      "end": 20.2
+    },
+    {
+      "word": "to",
+      "start": 20.2,
+      "end": 20.3
+    },
+    {
+      "word": "these",
+      "start": 20.3,
+      "end": 20.42
+    },
+    {
+      "word": "questions,",
+      "start": 20.42,
+      "end": 20.96
+    },
+    {
+      "word": "then",
+      "start": 21.14,
+      "end": 21.48
+    },
+    {
+      "word": "stick",
+      "start": 21.48,
+      "end": 21.72
+    },
+    {
+      "word": "around.",
+      "start": 21.72,
+      "end": 22.06
+    },
+    {
+      "word": "In",
+      "start": 22.32,
+      "end": 22.56
+    },
+    {
+      "word": "this",
+      "start": 22.56,
+      "end": 22.72
+    },
+    {
+      "word": "video,",
+      "start": 22.72,
+      "end": 23.06
+    },
+    {
+      "word": "I'm",
+      "start": 23.5,
+      "end": 23.76
+    },
+    {
+      "word": "going",
+      "start": 23.76,
+      "end": 23.82
+    },
+    {
+      "word": "to",
+      "start": 23.82,
+      "end": 23.88
+    },
+    {
+      "word": "talk",
+      "start": 23.88,
+      "end": 24.1
+    },
+    {
+      "word": "about",
+      "start": 24.1,
+      "end": 24.38
+    },
+    {
+      "word": "the",
+      "start": 24.38,
+      "end": 24.58
+    },
+    {
+      "word": "business",
+      "start": 24.58,
+      "end": 25.0
+    },
+    {
+      "word": "model",
+      "start": 25.0,
+      "end": 25.36
+    },
+    {
+      "word": "of",
+      "start": 25.36,
+      "end": 25.5
+    },
+    {
+      "word": "these",
+      "start": 25.5,
+      "end": 25.64
+    },
+    {
+      "word": "free",
+      "start": 25.64,
+      "end": 25.98
+    },
+    {
+      "word": "software",
+      "start": 25.98,
+      "end": 26.46
+    },
+    {
+      "word": "companies.",
+      "start": 26.46,
+      "end": 26.94
+    },
+    {
+      "word": "And",
+      "start": 26.94,
+      "end": 27.34
+    },
+    {
+      "word": "once",
+      "start": 27.34,
+      "end": 27.52
+    },
+    {
+      "word": "you",
+      "start": 27.52,
+      "end": 27.66
+    },
+    {
+      "word": "see",
+      "start": 27.66,
+      "end": 27.88
+    },
+    {
+      "word": "how",
+      "start": 27.88,
+      "end": 28.08
+    },
+    {
+      "word": "it",
+      "start": 28.08,
+      "end": 28.18
+    },
+    {
+      "word": "really",
+      "start": 28.18,
+      "end": 28.44
+    },
+    {
+      "word": "makes",
+      "start": 28.44,
+      "end": 28.72
+    },
+    {
+      "word": "money,",
+      "start": 28.72,
+      "end": 29.02
+    },
+    {
+      "word": "you'll",
+      "start": 29.16,
+      "end": 29.48
+    },
+    {
+      "word": "never",
+      "start": 29.48,
+      "end": 29.78
+    },
+    {
+      "word": "look",
+      "start": 29.78,
+      "end": 30.06
+    },
+    {
+      "word": "at",
+      "start": 30.06,
+      "end": 30.16
+    },
+    {
+      "word": "it",
+      "start": 30.16,
+      "end": 30.24
+    },
+    {
+      "word": "the",
+      "start": 30.24,
+      "end": 30.32
+    },
+    {
+      "word": "same",
+      "start": 30.32,
+      "end": 30.58
+    },
+    {
+      "word": "way",
+      "start": 30.58,
+      "end": 30.76
+    },
+    {
+      "word": "again.",
+      "start": 30.76,
+      "end": 31.04
+    },
+    {
+      "word": "So",
+      "start": 31.38,
+      "end": 31.62
+    },
+    {
+      "word": "before",
+      "start": 31.62,
+      "end": 31.8
+    },
+    {
+      "word": "we",
+      "start": 31.8,
+      "end": 31.94
+    },
+    {
+      "word": "talk",
+      "start": 31.94,
+      "end": 32.1
+    },
+    {
+      "word": "about",
+      "start": 32.1,
+      "end": 32.32
+    },
+    {
+      "word": "money,",
+      "start": 32.32,
+      "end": 32.62
+    },
+    {
+      "word": "we",
+      "start": 32.8,
+      "end": 33.02
+    },
+    {
+      "word": "need",
+      "start": 33.02,
+      "end": 33.14
+    },
+    {
+      "word": "to",
+      "start": 33.14,
+      "end": 33.24
+    },
+    {
+      "word": "clear",
+      "start": 33.24,
+      "end": 33.4
+    },
+    {
+      "word": "up",
+      "start": 33.4,
+      "end": 33.64
+    },
+    {
+      "word": "one",
+      "start": 33.64,
+      "end": 33.96
+    },
+    {
+      "word": "big",
+      "start": 33.96,
+      "end": 34.42
+    },
+    {
+      "word": "misunderstanding.",
+      "start": 34.42,
+      "end": 34.88
+    },
+    {
+      "word": "When",
+      "start": 35.58,
+      "end": 35.66
+    },
+    {
+      "word": "we",
+      "start": 35.66,
+      "end": 35.74
+    },
+    {
+      "word": "say",
+      "start": 35.74,
+      "end": 35.94
+    },
+    {
+      "word": "a",
+      "start": 35.94,
+      "end": 36.06
+    },
+    {
+      "word": "software",
+      "start": 36.06,
+      "end": 36.46
+    },
+    {
+      "word": "is",
+      "start": 36.46,
+      "end": 36.84
+    },
+    {
+      "word": "free,",
+      "start": 36.84,
+      "end": 37.22
+    },
+    {
+      "word": "it",
+      "start": 37.5,
+      "end": 37.58
+    },
+    {
+      "word": "doesn't",
+      "start": 37.58,
+      "end": 37.84
+    },
+    {
+      "word": "always",
+      "start": 37.84,
+      "end": 38.14
+    },
+    {
+      "word": "mean",
+      "start": 38.14,
+      "end": 38.44
+    },
+    {
+      "word": "the",
+      "start": 38.44,
+      "end": 38.62
+    },
+    {
+      "word": "same",
+      "start": 38.62,
+      "end": 38.86
+    },
+    {
+      "word": "thing.",
+      "start": 38.86,
+      "end": 39.18
+    },
+    {
+      "word": "In",
+      "start": 39.44,
+      "end": 39.52
+    },
+    {
+      "word": "tech,",
+      "start": 39.52,
+      "end": 39.78
+    },
+    {
+      "word": "there",
+      "start": 40.12,
+      "end": 40.26
+    },
+    {
+      "word": "are",
+      "start": 40.26,
+      "end": 40.4
+    },
+    {
+      "word": "actually",
+      "start": 40.4,
+      "end": 40.7
+    },
+    {
+      "word": "two",
+      "start": 40.7,
+      "end": 41.04
+    },
+    {
+      "word": "meanings",
+      "start": 41.04,
+      "end": 41.38
+    },
+    {
+      "word": "of",
+      "start": 41.38,
+      "end": 41.6
+    },
+    {
+      "word": "free.",
+      "start": 41.6,
+      "end": 41.84
+    },
+    {
+      "word": "The",
+      "start": 42.18,
+      "end": 42.3
+    },
+    {
+      "word": "first",
+      "start": 42.3,
+      "end": 42.58
+    },
+    {
+      "word": "is",
+      "start": 42.58,
+      "end": 42.96
+    },
+    {
+      "word": "free",
+      "start": 42.96,
+      "end": 43.44
+    },
+    {
+      "word": "as",
+      "start": 43.44,
+      "end": 43.8
+    },
+    {
+      "word": "in",
+      "start": 43.8,
+      "end": 43.94
+    },
+    {
+      "word": "beer.",
+      "start": 43.94,
+      "end": 44.22
+    },
+    {
+      "word": "That",
+      "start": 44.58,
+      "end": 44.7
+    },
+    {
+      "word": "simply",
+      "start": 44.7,
+      "end": 44.94
+    },
+    {
+      "word": "means",
+      "start": 44.94,
+      "end": 45.2
+    },
+    {
+      "word": "you",
+      "start": 45.2,
+      "end": 45.4
+    },
+    {
+      "word": "don't",
+      "start": 45.4,
+      "end": 45.66
+    },
+    {
+      "word": "pay",
+      "start": 45.66,
+      "end": 45.88
+    },
+    {
+      "word": "to",
+      "start": 45.88,
+      "end": 45.98
+    },
+    {
+      "word": "use",
+      "start": 45.98,
+      "end": 46.26
+    },
+    {
+      "word": "it.",
+      "start": 46.26,
+      "end": 46.44
+    },
+    {
+      "word": "Just",
+      "start": 46.62,
+      "end": 46.82
+    },
+    {
+      "word": "download,",
+      "start": 46.82,
+      "end": 47.24
+    },
+    {
+      "word": "install,",
+      "start": 47.66,
+      "end": 48.04
+    },
+    {
+      "word": "and",
+      "start": 48.36,
+      "end": 48.46
+    },
+    {
+      "word": "you",
+      "start": 48.46,
+      "end": 48.58
+    },
+    {
+      "word": "are",
+      "start": 48.58,
+      "end": 48.68
+    },
+    {
+      "word": "good",
+      "start": 48.68,
+      "end": 48.84
+    },
+    {
+      "word": "to",
+      "start": 48.84,
+      "end": 48.96
+    },
+    {
+      "word": "go.",
+      "start": 48.96,
+      "end": 49.14
+    },
+    {
+      "word": "No",
+      "start": 49.52,
+      "end": 49.64
+    },
+    {
+      "word": "credit",
+      "start": 49.64,
+      "end": 49.9
+    },
+    {
+      "word": "card",
+      "start": 49.9,
+      "end": 50.12
+    },
+    {
+      "word": "required.",
+      "start": 50.12,
+      "end": 50.48
+    },
+    {
+      "word": "Some",
+      "start": 50.86,
+      "end": 51.06
+    },
+    {
+      "word": "examples",
+      "start": 51.06,
+      "end": 51.4
+    },
+    {
+      "word": "are",
+      "start": 51.4,
+      "end": 51.62
+    },
+    {
+      "word": "Zoom,",
+      "start": 51.62,
+      "end": 51.92
+    },
+    {
+      "word": "Spotify,",
+      "start": 52.46,
+      "end": 52.8
+    },
+    {
+      "word": "and",
+      "start": 53.36,
+      "end": 53.56
+    },
+    {
+      "word": "VS",
+      "start": 53.56,
+      "end": 53.94
+    },
+    {
+      "word": "Code.",
+      "start": 53.94,
+      "end": 54.26
+    },
+    {
+      "word": "The",
+      "start": 54.26,
+      "end": 54.76
+    },
+    {
+      "word": "second",
+      "start": 54.76,
+      "end": 55.0
+    },
+    {
+      "word": "type",
+      "start": 55.0,
+      "end": 55.3
+    },
+    {
+      "word": "is",
+      "start": 55.3,
+      "end": 55.78
+    },
+    {
+      "word": "free",
+      "start": 55.78,
+      "end": 56.26
+    },
+    {
+      "word": "as",
+      "start": 56.26,
+      "end": 56.66
+    },
+    {
+      "word": "in",
+      "start": 56.66,
+      "end": 56.78
+    },
+    {
+      "word": "speech.",
+      "start": 56.78,
+      "end": 57.08
+    },
+    {
+      "word": "This",
+      "start": 57.62,
+      "end": 57.7
+    },
+    {
+      "word": "is",
+      "start": 57.7,
+      "end": 57.8
+    },
+    {
+      "word": "about",
+      "start": 57.8,
+      "end": 58.0
+    },
+    {
+      "word": "freedom,",
+      "start": 58.0,
+      "end": 58.42
+    },
+    {
+      "word": "not",
+      "start": 58.7,
+      "end": 59.0
+    },
+    {
+      "word": "price.",
+      "start": 59.0,
+      "end": 59.48
+    },
+    {
+      "word": "You're",
+      "start": 59.88,
+      "end": 60.0
+    },
+    {
+      "word": "free",
+      "start": 60.0,
+      "end": 60.16
+    },
+    {
+      "word": "to",
+      "start": 60.16,
+      "end": 60.28
+    },
+    {
+      "word": "view",
+      "start": 60.28,
+      "end": 60.48
+    },
+    {
+      "word": "the",
+      "start": 60.48,
+      "end": 60.6
+    },
+    {
+      "word": "source",
+      "start": 60.6,
+      "end": 60.86
+    },
+    {
+      "word": "code,",
+      "start": 60.86,
+      "end": 61.24
+    },
+    {
+      "word": "modify",
+      "start": 61.4,
+      "end": 61.68
+    },
+    {
+      "word": "it,",
+      "start": 61.68,
+      "end": 62.14
+    },
+    {
+      "word": "and",
+      "start": 62.26,
+      "end": 62.32
+    },
+    {
+      "word": "build",
+      "start": 62.32,
+      "end": 62.54
+    },
+    {
+      "word": "on",
+      "start": 62.54,
+      "end": 62.74
+    },
+    {
+      "word": "top",
+      "start": 62.74,
+      "end": 62.94
+    },
+    {
+      "word": "of",
+      "start": 62.94,
+      "end": 63.1
+    },
+    {
+      "word": "it.",
+      "start": 63.1,
+      "end": 63.24
+    },
+    {
+      "word": "A",
+      "start": 63.46,
+      "end": 63.54
+    },
+    {
+      "word": "great",
+      "start": 63.54,
+      "end": 63.72
+    },
+    {
+      "word": "example",
+      "start": 63.72,
+      "end": 64.16
+    },
+    {
+      "word": "is",
+      "start": 64.16,
+      "end": 64.36
+    },
+    {
+      "word": "Linux.",
+      "start": 64.36,
+      "end": 64.58
+    },
+    {
+      "word": "Linux",
+      "start": 64.98,
+      "end": 65.24
+    },
+    {
+      "word": "is",
+      "start": 65.24,
+      "end": 65.46
+    },
+    {
+      "word": "completely",
+      "start": 65.46,
+      "end": 65.94
+    },
+    {
+      "word": "free",
+      "start": 65.94,
+      "end": 66.52
+    },
+    {
+      "word": "as",
+      "start": 66.52,
+      "end": 67.04
+    },
+    {
+      "word": "in",
+      "start": 67.04,
+      "end": 67.16
+    },
+    {
+      "word": "speech.",
+      "start": 67.16,
+      "end": 67.66
+    },
+    {
+      "word": "It",
+      "start": 68.1,
+      "end": 68.24
+    },
+    {
+      "word": "is",
+      "start": 68.24,
+      "end": 68.32
+    },
+    {
+      "word": "an",
+      "start": 68.32,
+      "end": 68.46
+    },
+    {
+      "word": "open",
+      "start": 68.46,
+      "end": 68.74
+    },
+    {
+      "word": "source",
+      "start": 68.74,
+      "end": 69.04
+    },
+    {
+      "word": "operating",
+      "start": 69.04,
+      "end": 69.52
+    },
+    {
+      "word": "system",
+      "start": 69.52,
+      "end": 69.98
+    },
+    {
+      "word": "for",
+      "start": 69.98,
+      "end": 70.4
+    },
+    {
+      "word": "simplicity",
+      "start": 70.4,
+      "end": 70.92
+    },
+    {
+      "word": "in",
+      "start": 70.92,
+      "end": 71.32
+    },
+    {
+      "word": "this",
+      "start": 71.32,
+      "end": 71.46
+    },
+    {
+      "word": "video.",
+      "start": 71.46,
+      "end": 71.8
+    },
+    {
+      "word": "I'll",
+      "start": 72.06,
+      "end": 72.24
+    },
+    {
+      "word": "call",
+      "start": 72.24,
+      "end": 72.38
+    },
+    {
+      "word": "the",
+      "start": 72.38,
+      "end": 72.52
+    },
+    {
+      "word": "first",
+      "start": 72.52,
+      "end": 72.76
+    },
+    {
+      "word": "type",
+      "start": 72.76,
+      "end": 73.06
+    },
+    {
+      "word": "free",
+      "start": 73.06,
+      "end": 73.46
+    },
+    {
+      "word": "software",
+      "start": 73.46,
+      "end": 73.94
+    },
+    {
+      "word": "and",
+      "start": 73.94,
+      "end": 74.64
+    },
+    {
+      "word": "the",
+      "start": 74.64,
+      "end": 74.78
+    },
+    {
+      "word": "second",
+      "start": 74.78,
+      "end": 75.06
+    },
+    {
+      "word": "type",
+      "start": 75.06,
+      "end": 75.5
+    },
+    {
+      "word": "of",
+      "start": 75.5,
+      "end": 75.84
+    },
+    {
+      "word": "open",
+      "start": 75.84,
+      "end": 76.22
+    },
+    {
+      "word": "source",
+      "start": 76.22,
+      "end": 76.46
+    },
+    {
+      "word": "software.",
+      "start": 76.46,
+      "end": 77.06
+    },
+    {
+      "word": "Now",
+      "start": 77.34,
+      "end": 77.52
+    },
+    {
+      "word": "let's",
+      "start": 77.52,
+      "end": 77.64
+    },
+    {
+      "word": "talk",
+      "start": 77.64,
+      "end": 77.78
+    },
+    {
+      "word": "about",
+      "start": 77.78,
+      "end": 78.0
+    },
+    {
+      "word": "how",
+      "start": 78.0,
+      "end": 78.22
+    },
+    {
+      "word": "these",
+      "start": 78.22,
+      "end": 78.4
+    },
+    {
+      "word": "actually",
+      "start": 78.4,
+      "end": 78.76
+    },
+    {
+      "word": "make",
+      "start": 78.76,
+      "end": 78.96
+    },
+    {
+      "word": "money.",
+      "start": 78.96,
+      "end": 79.24
+    },
+    {
+      "word": "So",
+      "start": 79.42,
+      "end": 79.64
+    },
+    {
+      "word": "there",
+      "start": 79.64,
+      "end": 79.76
+    },
+    {
+      "word": "are",
+      "start": 79.76,
+      "end": 79.88
+    },
+    {
+      "word": "five",
+      "start": 79.88,
+      "end": 80.16
+    },
+    {
+      "word": "common",
+      "start": 80.16,
+      "end": 80.48
+    },
+    {
+      "word": "ways",
+      "start": 80.48,
+      "end": 80.7
+    },
+    {
+      "word": "these",
+      "start": 80.7,
+      "end": 80.88
+    },
+    {
+      "word": "software",
+      "start": 80.88,
+      "end": 81.38
+    },
+    {
+      "word": "can",
+      "start": 81.38,
+      "end": 81.78
+    },
+    {
+      "word": "make",
+      "start": 81.78,
+      "end": 81.96
+    },
+    {
+      "word": "money.",
+      "start": 81.96,
+      "end": 82.26
+    },
+    {
+      "word": "Let's",
+      "start": 82.26,
+      "end": 82.64
+    },
+    {
+      "word": "go",
+      "start": 82.64,
+      "end": 82.74
+    },
+    {
+      "word": "through",
+      "start": 82.74,
+      "end": 82.92
+    },
+    {
+      "word": "it",
+      "start": 82.92,
+      "end": 83.04
+    },
+    {
+      "word": "one",
+      "start": 83.04,
+      "end": 83.14
+    },
+    {
+      "word": "by",
+      "start": 83.14,
+      "end": 83.3
+    },
+    {
+      "word": "one",
+      "start": 83.3,
+      "end": 83.66
+    },
+    {
+      "word": "and",
+      "start": 83.66,
+      "end": 83.88
+    },
+    {
+      "word": "I",
+      "start": 83.88,
+      "end": 83.98
+    },
+    {
+      "word": "want",
+      "start": 83.98,
+      "end": 84.08
+    },
+    {
+      "word": "to",
+      "start": 84.08,
+      "end": 84.16
+    },
+    {
+      "word": "start",
+      "start": 84.16,
+      "end": 84.4
+    },
+    {
+      "word": "with",
+      "start": 84.4,
+      "end": 84.58
+    },
+    {
+      "word": "the",
+      "start": 84.58,
+      "end": 84.7
+    },
+    {
+      "word": "most",
+      "start": 84.7,
+      "end": 84.86
+    },
+    {
+      "word": "sketchy",
+      "start": 84.86,
+      "end": 85.38
+    },
+    {
+      "word": "method.",
+      "start": 85.38,
+      "end": 85.64
+    },
+    {
+      "word": "Data",
+      "start": 86.04,
+      "end": 86.28
+    },
+    {
+      "word": "monetization.",
+      "start": 86.28,
+      "end": 87.2
+    },
+    {
+      "word": "So",
+      "start": 87.54,
+      "end": 87.6
+    },
+    {
+      "word": "this",
+      "start": 87.6,
+      "end": 87.76
+    },
+    {
+      "word": "is",
+      "start": 87.76,
+      "end": 87.88
+    },
+    {
+      "word": "uncommon",
+      "start": 87.88,
+      "end": 88.24
+    },
+    {
+      "word": "for",
+      "start": 88.24,
+      "end": 88.64
+    },
+    {
+      "word": "open",
+      "start": 88.64,
+      "end": 88.9
+    },
+    {
+      "word": "source",
+      "start": 88.9,
+      "end": 89.16
+    },
+    {
+      "word": "software,",
+      "start": 89.16,
+      "end": 89.76
+    },
+    {
+      "word": "but",
+      "start": 90.02,
+      "end": 90.2
+    },
+    {
+      "word": "common",
+      "start": 90.2,
+      "end": 90.56
+    },
+    {
+      "word": "for",
+      "start": 90.56,
+      "end": 90.78
+    },
+    {
+      "word": "free",
+      "start": 90.78,
+      "end": 91.02
+    },
+    {
+      "word": "software",
+      "start": 91.02,
+      "end": 91.58
+    },
+    {
+      "word": "that",
+      "start": 91.58,
+      "end": 91.82
+    },
+    {
+      "word": "is",
+      "start": 91.82,
+      "end": 91.94
+    },
+    {
+      "word": "hosted",
+      "start": 91.94,
+      "end": 92.32
+    },
+    {
+      "word": "by",
+      "start": 92.32,
+      "end": 92.52
+    },
+    {
+      "word": "the",
+      "start": 92.52,
+      "end": 92.64
+    },
+    {
+      "word": "companies",
+      "start": 92.64,
+      "end": 93.02
+    },
+    {
+      "word": "themselves.",
+      "start": 93.02,
+      "end": 93.5
+    },
+    {
+      "word": "So",
+      "start": 93.98,
+      "end": 94.16
+    },
+    {
+      "word": "some",
+      "start": 94.16,
+      "end": 94.32
+    },
+    {
+      "word": "software",
+      "start": 94.32,
+      "end": 94.78
+    },
+    {
+      "word": "tracks",
+      "start": 94.78,
+      "end": 95.08
+    },
+    {
+      "word": "what",
+      "start": 95.08,
+      "end": 95.32
+    },
+    {
+      "word": "you",
+      "start": 95.32,
+      "end": 95.42
+    },
+    {
+      "word": "do.",
+      "start": 95.42,
+      "end": 95.62
+    },
+    {
+      "word": "They",
+      "start": 95.9,
+      "end": 96.0
+    },
+    {
+      "word": "collect",
+      "start": 96.0,
+      "end": 96.38
+    },
+    {
+      "word": "anonymized",
+      "start": 96.38,
+      "end": 97.18
+    },
+    {
+      "word": "data",
+      "start": 97.18,
+      "end": 97.56
+    },
+    {
+      "word": "about",
+      "start": 97.56,
+      "end": 97.8
+    },
+    {
+      "word": "your",
+      "start": 97.8,
+      "end": 97.98
+    },
+    {
+      "word": "clicks,",
+      "start": 97.98,
+      "end": 98.32
+    },
+    {
+      "word": "searches,",
+      "start": 98.66,
+      "end": 99.12
+    },
+    {
+      "word": "and",
+      "start": 99.5,
+      "end": 99.56
+    },
+    {
+      "word": "habits",
+      "start": 99.56,
+      "end": 99.92
+    },
+    {
+      "word": "when",
+      "start": 99.92,
+      "end": 100.38
+    },
+    {
+      "word": "you",
+      "start": 100.38,
+      "end": 100.48
+    },
+    {
+      "word": "are",
+      "start": 100.48,
+      "end": 100.54
+    },
+    {
+      "word": "using",
+      "start": 100.54,
+      "end": 100.8
+    },
+    {
+      "word": "the",
+      "start": 100.8,
+      "end": 101.0
+    },
+    {
+      "word": "app.",
+      "start": 101.0,
+      "end": 101.26
+    },
+    {
+      "word": "Social",
+      "start": 101.54,
+      "end": 101.76
+    },
+    {
+      "word": "media,",
+      "start": 101.76,
+      "end": 102.22
+    },
+    {
+      "word": "free",
+      "start": 102.54,
+      "end": 102.86
+    },
+    {
+      "word": "AI",
+      "start": 102.86,
+      "end": 103.4
+    },
+    {
+      "word": "chatbots,",
+      "start": 103.4,
+      "end": 104.0
+    },
+    {
+      "word": "and",
+      "start": 104.4,
+      "end": 104.6
+    },
+    {
+      "word": "even",
+      "start": 104.6,
+      "end": 104.88
+    },
+    {
+      "word": "some",
+      "start": 104.88,
+      "end": 105.06
+    },
+    {
+      "word": "productivity",
+      "start": 105.06,
+      "end": 105.46
+    },
+    {
+      "word": "tools",
+      "start": 105.46,
+      "end": 105.92
+    },
+    {
+      "word": "do",
+      "start": 105.92,
+      "end": 106.22
+    },
+    {
+      "word": "this.",
+      "start": 106.22,
+      "end": 106.5
+    },
+    {
+      "word": "They",
+      "start": 106.82,
+      "end": 106.98
+    },
+    {
+      "word": "use",
+      "start": 106.98,
+      "end": 107.2
+    },
+    {
+      "word": "that",
+      "start": 107.2,
+      "end": 107.42
+    },
+    {
+      "word": "data",
+      "start": 107.42,
+      "end": 107.76
+    },
+    {
+      "word": "to",
+      "start": 107.76,
+      "end": 107.96
+    },
+    {
+      "word": "improve",
+      "start": 107.96,
+      "end": 108.34
+    },
+    {
+      "word": "their",
+      "start": 108.34,
+      "end": 108.56
+    },
+    {
+      "word": "product",
+      "start": 108.56,
+      "end": 108.92
+    },
+    {
+      "word": "or",
+      "start": 108.92,
+      "end": 109.24
+    },
+    {
+      "word": "even",
+      "start": 109.24,
+      "end": 109.52
+    },
+    {
+      "word": "sell",
+      "start": 109.52,
+      "end": 109.86
+    },
+    {
+      "word": "data",
+      "start": 109.86,
+      "end": 110.22
+    },
+    {
+      "word": "to",
+      "start": 110.22,
+      "end": 110.58
+    },
+    {
+      "word": "advertisers.",
+      "start": 110.58,
+      "end": 111.18
+    },
+    {
+      "word": "In",
+      "start": 111.18,
+      "end": 111.74
+    },
+    {
+      "word": "simple",
+      "start": 111.74,
+      "end": 112.04
+    },
+    {
+      "word": "terms,",
+      "start": 112.04,
+      "end": 112.48
+    },
+    {
+      "word": "if",
+      "start": 112.82,
+      "end": 112.96
+    },
+    {
+      "word": "you're",
+      "start": 112.96,
+      "end": 113.04
+    },
+    {
+      "word": "not",
+      "start": 113.04,
+      "end": 113.18
+    },
+    {
+      "word": "paying",
+      "start": 113.18,
+      "end": 113.48
+    },
+    {
+      "word": "with",
+      "start": 113.48,
+      "end": 113.7
+    },
+    {
+      "word": "money,",
+      "start": 113.7,
+      "end": 113.98
+    },
+    {
+      "word": "you're",
+      "start": 114.16,
+      "end": 114.32
+    },
+    {
+      "word": "paying",
+      "start": 114.32,
+      "end": 114.56
+    },
+    {
+      "word": "with",
+      "start": 114.56,
+      "end": 114.74
+    },
+    {
+      "word": "your",
+      "start": 114.74,
+      "end": 114.84
+    },
+    {
+      "word": "data.",
+      "start": 114.84,
+      "end": 115.1
+    },
+    {
+      "word": "But",
+      "start": 115.36,
+      "end": 115.52
+    },
+    {
+      "word": "of",
+      "start": 115.52,
+      "end": 115.64
+    },
+    {
+      "word": "course,",
+      "start": 115.64,
+      "end": 115.92
+    },
+    {
+      "word": "they're",
+      "start": 116.08,
+      "end": 116.3
+    },
+    {
+      "word": "not",
+      "start": 116.3,
+      "end": 116.52
+    },
+    {
+      "word": "doing",
+      "start": 116.52,
+      "end": 116.84
+    },
+    {
+      "word": "this",
+      "start": 116.84,
+      "end": 117.1
+    },
+    {
+      "word": "illegally.",
+      "start": 117.1,
+      "end": 117.42
+    },
+    {
+      "word": "You",
+      "start": 117.86,
+      "end": 118.0
+    },
+    {
+      "word": "give",
+      "start": 118.0,
+      "end": 118.14
+    },
+    {
+      "word": "them",
+      "start": 118.14,
+      "end": 118.26
+    },
+    {
+      "word": "consent",
+      "start": 118.26,
+      "end": 118.7
+    },
+    {
+      "word": "by",
+      "start": 118.7,
+      "end": 118.96
+    },
+    {
+      "word": "accepting",
+      "start": 118.96,
+      "end": 119.36
+    },
+    {
+      "word": "the",
+      "start": 119.36,
+      "end": 119.52
+    },
+    {
+      "word": "terms",
+      "start": 119.52,
+      "end": 119.82
+    },
+    {
+      "word": "and",
+      "start": 119.82,
+      "end": 119.98
+    },
+    {
+      "word": "conditions",
+      "start": 119.98,
+      "end": 120.42
+    },
+    {
+      "word": "before",
+      "start": 120.42,
+      "end": 120.98
+    },
+    {
+      "word": "using",
+      "start": 120.98,
+      "end": 121.38
+    },
+    {
+      "word": "the",
+      "start": 121.38,
+      "end": 121.56
+    },
+    {
+      "word": "app.",
+      "start": 121.56,
+      "end": 121.86
+    },
+    {
+      "word": "So",
+      "start": 122.08,
+      "end": 122.26
+    },
+    {
+      "word": "they",
+      "start": 122.26,
+      "end": 122.36
+    },
+    {
+      "word": "aren't",
+      "start": 122.36,
+      "end": 122.52
+    },
+    {
+      "word": "technically",
+      "start": 122.52,
+      "end": 122.86
+    },
+    {
+      "word": "the",
+      "start": 122.86,
+      "end": 123.04
+    },
+    {
+      "word": "bad",
+      "start": 123.04,
+      "end": 123.24
+    },
+    {
+      "word": "guys",
+      "start": 123.24,
+      "end": 123.48
+    },
+    {
+      "word": "here.",
+      "start": 123.48,
+      "end": 123.74
+    },
+    {
+      "word": "So",
+      "start": 124.08,
+      "end": 124.24
+    },
+    {
+      "word": "the",
+      "start": 124.24,
+      "end": 124.32
+    },
+    {
+      "word": "next",
+      "start": 124.32,
+      "end": 124.46
+    },
+    {
+      "word": "way",
+      "start": 124.46,
+      "end": 124.7
+    },
+    {
+      "word": "is",
+      "start": 124.7,
+      "end": 125.02
+    },
+    {
+      "word": "open",
+      "start": 125.02,
+      "end": 125.34
+    },
+    {
+      "word": "source",
+      "start": 125.34,
+      "end": 125.7
+    },
+    {
+      "word": "plus",
+      "start": 125.7,
+      "end": 126.08
+    },
+    {
+      "word": "paid",
+      "start": 126.08,
+      "end": 126.42
+    },
+    {
+      "word": "support.",
+      "start": 126.42,
+      "end": 126.72
+    },
+    {
+      "word": "This",
+      "start": 127.22,
+      "end": 127.36
+    },
+    {
+      "word": "idea",
+      "start": 127.36,
+      "end": 127.82
+    },
+    {
+      "word": "is",
+      "start": 127.82,
+      "end": 128.38
+    },
+    {
+      "word": "my",
+      "start": 128.38,
+      "end": 128.56
+    },
+    {
+      "word": "favorite.",
+      "start": 128.56,
+      "end": 129.0
+    },
+    {
+      "word": "So",
+      "start": 129.42,
+      "end": 129.52
+    },
+    {
+      "word": "as",
+      "start": 129.52,
+      "end": 129.66
+    },
+    {
+      "word": "I",
+      "start": 129.66,
+      "end": 129.78
+    },
+    {
+      "word": "said",
+      "start": 129.78,
+      "end": 129.92
+    },
+    {
+      "word": "already,",
+      "start": 129.92,
+      "end": 130.24
+    },
+    {
+      "word": "open",
+      "start": 130.66,
+      "end": 130.84
+    },
+    {
+      "word": "source",
+      "start": 130.84,
+      "end": 131.08
+    },
+    {
+      "word": "software",
+      "start": 131.08,
+      "end": 131.56
+    },
+    {
+      "word": "is",
+      "start": 131.56,
+      "end": 131.82
+    },
+    {
+      "word": "the",
+      "start": 131.82,
+      "end": 131.94
+    },
+    {
+      "word": "one",
+      "start": 131.94,
+      "end": 132.18
+    },
+    {
+      "word": "that",
+      "start": 132.18,
+      "end": 132.36
+    },
+    {
+      "word": "you",
+      "start": 132.36,
+      "end": 132.44
+    },
+    {
+      "word": "can",
+      "start": 132.44,
+      "end": 132.56
+    },
+    {
+      "word": "see,",
+      "start": 132.56,
+      "end": 132.9
+    },
+    {
+      "word": "modify",
+      "start": 133.28,
+      "end": 133.68
+    },
+    {
+      "word": "the",
+      "start": 133.68,
+      "end": 133.96
+    },
+    {
+      "word": "code",
+      "start": 133.96,
+      "end": 134.22
+    },
+    {
+      "word": "as",
+      "start": 134.22,
+      "end": 134.38
+    },
+    {
+      "word": "you",
+      "start": 134.38,
+      "end": 134.52
+    },
+    {
+      "word": "need,",
+      "start": 134.52,
+      "end": 134.8
+    },
+    {
+      "word": "completely",
+      "start": 135.08,
+      "end": 135.54
+    },
+    {
+      "word": "for",
+      "start": 135.54,
+      "end": 135.82
+    },
+    {
+      "word": "free.",
+      "start": 135.82,
+      "end": 136.2
+    },
+    {
+      "word": "So",
+      "start": 136.42,
+      "end": 136.6
+    },
+    {
+      "word": "there",
+      "start": 136.6,
+      "end": 136.74
+    },
+    {
+      "word": "are",
+      "start": 136.74,
+      "end": 136.84
+    },
+    {
+      "word": "companies",
+      "start": 136.84,
+      "end": 137.06
+    },
+    {
+      "word": "built",
+      "start": 137.06,
+      "end": 137.42
+    },
+    {
+      "word": "around",
+      "start": 137.42,
+      "end": 137.84
+    },
+    {
+      "word": "these",
+      "start": 137.84,
+      "end": 138.16
+    },
+    {
+      "word": "open",
+      "start": 138.16,
+      "end": 138.58
+    },
+    {
+      "word": "source",
+      "start": 138.58,
+      "end": 138.9
+    },
+    {
+      "word": "projects.",
+      "start": 138.9,
+      "end": 139.48
+    },
+    {
+      "word": "Take",
+      "start": 139.48,
+      "end": 140.06
+    },
+    {
+      "word": "Linux,",
+      "start": 140.06,
+      "end": 140.32
+    },
+    {
+      "word": "for",
+      "start": 140.5,
+      "end": 140.58
+    },
+    {
+      "word": "example.",
+      "start": 140.58,
+      "end": 140.94
+    },
+    {
+      "word": "It",
+      "start": 141.28,
+      "end": 141.36
+    },
+    {
+      "word": "is",
+      "start": 141.36,
+      "end": 141.46
+    },
+    {
+      "word": "an",
+      "start": 141.46,
+      "end": 141.56
+    },
+    {
+      "word": "open",
+      "start": 141.56,
+      "end": 141.82
+    },
+    {
+      "word": "source",
+      "start": 141.82,
+      "end": 142.14
+    },
+    {
+      "word": "project,",
+      "start": 142.14,
+      "end": 142.74
+    },
+    {
+      "word": "but",
+      "start": 142.92,
+      "end": 143.24
+    },
+    {
+      "word": "companies",
+      "start": 143.24,
+      "end": 143.58
+    },
+    {
+      "word": "like",
+      "start": 143.58,
+      "end": 143.86
+    },
+    {
+      "word": "Red",
+      "start": 143.86,
+      "end": 144.22
+    },
+    {
+      "word": "Hat",
+      "start": 144.22,
+      "end": 144.4
+    },
+    {
+      "word": "customized",
+      "start": 144.4,
+      "end": 144.86
+    },
+    {
+      "word": "the",
+      "start": 144.86,
+      "end": 145.28
+    },
+    {
+      "word": "open",
+      "start": 145.28,
+      "end": 145.56
+    },
+    {
+      "word": "source",
+      "start": 145.56,
+      "end": 145.86
+    },
+    {
+      "word": "Linux",
+      "start": 145.86,
+      "end": 146.22
+    },
+    {
+      "word": "and",
+      "start": 146.22,
+      "end": 146.8
+    },
+    {
+      "word": "provided",
+      "start": 146.8,
+      "end": 147.28
+    },
+    {
+      "word": "it",
+      "start": 147.28,
+      "end": 147.5
+    },
+    {
+      "word": "to",
+      "start": 147.5,
+      "end": 147.64
+    },
+    {
+      "word": "the",
+      "start": 147.64,
+      "end": 147.74
+    },
+    {
+      "word": "customers.",
+      "start": 147.74,
+      "end": 148.1
+    },
+    {
+      "word": "The",
+      "start": 148.66,
+      "end": 148.78
+    },
+    {
+      "word": "software",
+      "start": 148.78,
+      "end": 149.2
+    },
+    {
+      "word": "itself",
+      "start": 149.2,
+      "end": 149.52
+    },
+    {
+      "word": "is",
+      "start": 149.52,
+      "end": 149.88
+    },
+    {
+      "word": "free,",
+      "start": 149.88,
+      "end": 150.32
+    },
+    {
+      "word": "but",
+      "start": 150.58,
+      "end": 150.72
+    },
+    {
+      "word": "if",
+      "start": 150.72,
+      "end": 150.8
+    },
+    {
+      "word": "you",
+      "start": 150.8,
+      "end": 150.88
+    },
+    {
+      "word": "want",
+      "start": 150.88,
+      "end": 151.0
+    },
+    {
+      "word": "24",
+      "start": 151.0,
+      "end": 151.42
+    },
+    {
+      "word": "seven",
+      "start": 151.42,
+      "end": 151.84
+    },
+    {
+      "word": "expert",
+      "start": 151.84,
+      "end": 152.16
+    },
+    {
+      "word": "support,",
+      "start": 152.16,
+      "end": 152.54
+    },
+    {
+      "word": "manage",
+      "start": 152.8,
+      "end": 153.06
+    },
+    {
+      "word": "hosting",
+      "start": 153.06,
+      "end": 153.46
+    },
+    {
+      "word": "or",
+      "start": 153.46,
+      "end": 153.84
+    },
+    {
+      "word": "enterprise",
+      "start": 153.84,
+      "end": 154.26
+    },
+    {
+      "word": "features,",
+      "start": 154.26,
+      "end": 154.86
+    },
+    {
+      "word": "you",
+      "start": 155.3,
+      "end": 155.54
+    },
+    {
+      "word": "need",
+      "start": 155.54,
+      "end": 155.66
+    },
+    {
+      "word": "to",
+      "start": 155.66,
+      "end": 155.8
+    },
+    {
+      "word": "pay.",
+      "start": 155.8,
+      "end": 156.04
+    },
+    {
+      "word": "In",
+      "start": 156.44,
+      "end": 156.6
+    },
+    {
+      "word": "simple",
+      "start": 156.6,
+      "end": 156.9
+    },
+    {
+      "word": "words,",
+      "start": 156.9,
+      "end": 157.32
+    },
+    {
+      "word": "the",
+      "start": 157.72,
+      "end": 157.86
+    },
+    {
+      "word": "software",
+      "start": 157.86,
+      "end": 158.36
+    },
+    {
+      "word": "is",
+      "start": 158.36,
+      "end": 158.6
+    },
+    {
+      "word": "free,",
+      "start": 158.6,
+      "end": 159.08
+    },
+    {
+      "word": "but",
+      "start": 159.32,
+      "end": 159.54
+    },
+    {
+      "word": "getting",
+      "start": 159.54,
+      "end": 159.78
+    },
+    {
+      "word": "the",
+      "start": 159.78,
+      "end": 159.96
+    },
+    {
+      "word": "help",
+      "start": 159.96,
+      "end": 160.14
+    },
+    {
+      "word": "isn't.",
+      "start": 160.14,
+      "end": 160.5
+    },
+    {
+      "word": "And",
+      "start": 160.6,
+      "end": 160.8
+    },
+    {
+      "word": "that's",
+      "start": 160.8,
+      "end": 160.98
+    },
+    {
+      "word": "how",
+      "start": 160.98,
+      "end": 161.06
+    },
+    {
+      "word": "companies",
+      "start": 161.06,
+      "end": 161.38
+    },
+    {
+      "word": "like",
+      "start": 161.38,
+      "end": 161.68
+    },
+    {
+      "word": "Red",
+      "start": 161.68,
+      "end": 162.1
+    },
+    {
+      "word": "Hat",
+      "start": 162.1,
+      "end": 162.3
+    },
+    {
+      "word": "are",
+      "start": 162.3,
+      "end": 162.44
+    },
+    {
+      "word": "money.",
+      "start": 162.44,
+      "end": 162.72
+    },
+    {
+      "word": "So",
+      "start": 162.9,
+      "end": 163.14
+    },
+    {
+      "word": "that",
+      "start": 163.14,
+      "end": 163.3
+    },
+    {
+      "word": "brings",
+      "start": 163.3,
+      "end": 163.54
+    },
+    {
+      "word": "us",
+      "start": 163.54,
+      "end": 163.84
+    },
+    {
+      "word": "to",
+      "start": 163.84,
+      "end": 164.08
+    },
+    {
+      "word": "our",
+      "start": 164.08,
+      "end": 164.26
+    },
+    {
+      "word": "third",
+      "start": 164.26,
+      "end": 164.66
+    },
+    {
+      "word": "method,",
+      "start": 164.66,
+      "end": 165.04
+    },
+    {
+      "word": "freemium",
+      "start": 165.3,
+      "end": 165.68
+    },
+    {
+      "word": "model.",
+      "start": 165.68,
+      "end": 166.04
+    },
+    {
+      "word": "And",
+      "start": 166.16,
+      "end": 166.36
+    },
+    {
+      "word": "I",
+      "start": 166.36,
+      "end": 166.46
+    },
+    {
+      "word": "think",
+      "start": 166.46,
+      "end": 166.54
+    },
+    {
+      "word": "you",
+      "start": 166.54,
+      "end": 166.7
+    },
+    {
+      "word": "already",
+      "start": 166.7,
+      "end": 166.9
+    },
+    {
+      "word": "know",
+      "start": 166.9,
+      "end": 167.14
+    },
+    {
+      "word": "this.",
+      "start": 167.14,
+      "end": 167.4
+    },
+    {
+      "word": "Software",
+      "start": 167.4,
+      "end": 168.12
+    },
+    {
+      "word": "like",
+      "start": 168.12,
+      "end": 168.52
+    },
+    {
+      "word": "zoom,",
+      "start": 168.52,
+      "end": 168.86
+    },
+    {
+      "word": "Spotify",
+      "start": 169.4,
+      "end": 169.66
+    },
+    {
+      "word": "or",
+      "start": 169.66,
+      "end": 170.32
+    },
+    {
+      "word": "YouTube",
+      "start": 170.32,
+      "end": 170.74
+    },
+    {
+      "word": "has",
+      "start": 170.74,
+      "end": 171.08
+    },
+    {
+      "word": "a",
+      "start": 171.08,
+      "end": 171.2
+    },
+    {
+      "word": "free",
+      "start": 171.2,
+      "end": 171.44
+    },
+    {
+      "word": "version.",
+      "start": 171.44,
+      "end": 171.86
+    },
+    {
+      "word": "And",
+      "start": 172.16,
+      "end": 172.2
+    },
+    {
+      "word": "if",
+      "start": 172.2,
+      "end": 172.28
+    },
+    {
+      "word": "you",
+      "start": 172.28,
+      "end": 172.36
+    },
+    {
+      "word": "want",
+      "start": 172.36,
+      "end": 172.48
+    },
+    {
+      "word": "some",
+      "start": 172.48,
+      "end": 172.6
+    },
+    {
+      "word": "extra",
+      "start": 172.6,
+      "end": 172.82
+    },
+    {
+      "word": "features,",
+      "start": 172.82,
+      "end": 173.18
+    },
+    {
+      "word": "you",
+      "start": 173.5,
+      "end": 173.66
+    },
+    {
+      "word": "just",
+      "start": 173.66,
+      "end": 173.8
+    },
+    {
+      "word": "need",
+      "start": 173.8,
+      "end": 173.92
+    },
+    {
+      "word": "to",
+      "start": 173.92,
+      "end": 174.0
+    },
+    {
+      "word": "pay",
+      "start": 174.0,
+      "end": 174.16
+    },
+    {
+      "word": "for",
+      "start": 174.16,
+      "end": 174.32
+    },
+    {
+      "word": "them.",
+      "start": 174.32,
+      "end": 174.5
+    },
+    {
+      "word": "That's",
+      "start": 174.7,
+      "end": 174.9
+    },
+    {
+      "word": "one",
+      "start": 174.9,
+      "end": 175.0
+    },
+    {
+      "word": "method.",
+      "start": 175.0,
+      "end": 175.32
+    },
+    {
+      "word": "Another",
+      "start": 175.62,
+      "end": 175.82
+    },
+    {
+      "word": "way",
+      "start": 175.82,
+      "end": 176.14
+    },
+    {
+      "word": "is",
+      "start": 176.14,
+      "end": 176.36
+    },
+    {
+      "word": "that",
+      "start": 176.36,
+      "end": 176.48
+    },
+    {
+      "word": "some",
+      "start": 176.48,
+      "end": 176.68
+    },
+    {
+      "word": "software",
+      "start": 176.68,
+      "end": 177.32
+    },
+    {
+      "word": "also",
+      "start": 177.32,
+      "end": 177.86
+    },
+    {
+      "word": "has",
+      "start": 177.86,
+      "end": 178.12
+    },
+    {
+      "word": "credit",
+      "start": 178.12,
+      "end": 178.38
+    },
+    {
+      "word": "based",
+      "start": 178.38,
+      "end": 178.62
+    },
+    {
+      "word": "models.",
+      "start": 178.62,
+      "end": 179.0
+    },
+    {
+      "word": "Like",
+      "start": 179.32,
+      "end": 179.52
+    },
+    {
+      "word": "when",
+      "start": 179.52,
+      "end": 179.64
+    },
+    {
+      "word": "you",
+      "start": 179.64,
+      "end": 179.72
+    },
+    {
+      "word": "sign",
+      "start": 179.72,
+      "end": 179.96
+    },
+    {
+      "word": "up,",
+      "start": 179.96,
+      "end": 180.2
+    },
+    {
+      "word": "you",
+      "start": 180.38,
+      "end": 180.6
+    },
+    {
+      "word": "get",
+      "start": 180.6,
+      "end": 180.74
+    },
+    {
+      "word": "some",
+      "start": 180.74,
+      "end": 180.86
+    },
+    {
+      "word": "credits",
+      "start": 180.86,
+      "end": 181.14
+    },
+    {
+      "word": "to",
+      "start": 181.14,
+      "end": 181.4
+    },
+    {
+      "word": "use",
+      "start": 181.4,
+      "end": 181.66
+    },
+    {
+      "word": "the",
+      "start": 181.66,
+      "end": 181.84
+    },
+    {
+      "word": "software",
+      "start": 181.84,
+      "end": 182.34
+    },
+    {
+      "word": "until",
+      "start": 182.34,
+      "end": 182.68
+    },
+    {
+      "word": "they",
+      "start": 182.68,
+      "end": 182.86
+    },
+    {
+      "word": "run",
+      "start": 182.86,
+      "end": 183.02
+    },
+    {
+      "word": "out.",
+      "start": 183.02,
+      "end": 183.3
+    },
+    {
+      "word": "And",
+      "start": 183.44,
+      "end": 183.56
+    },
+    {
+      "word": "then",
+      "start": 183.56,
+      "end": 183.68
+    },
+    {
+      "word": "you",
+      "start": 183.68,
+      "end": 183.74
+    },
+    {
+      "word": "need",
+      "start": 183.74,
+      "end": 183.9
+    },
+    {
+      "word": "to",
+      "start": 183.9,
+      "end": 184.0
+    },
+    {
+      "word": "buy",
+      "start": 184.0,
+      "end": 184.14
+    },
+    {
+      "word": "more",
+      "start": 184.14,
+      "end": 184.3
+    },
+    {
+      "word": "credits",
+      "start": 184.3,
+      "end": 184.58
+    },
+    {
+      "word": "to",
+      "start": 184.58,
+      "end": 184.78
+    },
+    {
+      "word": "use",
+      "start": 184.78,
+      "end": 185.02
+    },
+    {
+      "word": "like",
+      "start": 185.02,
+      "end": 185.44
+    },
+    {
+      "word": "the",
+      "start": 185.44,
+      "end": 185.58
+    },
+    {
+      "word": "cursor",
+      "start": 185.58,
+      "end": 185.84
+    },
+    {
+      "word": "code",
+      "start": 185.84,
+      "end": 186.12
+    },
+    {
+      "word": "editor",
+      "start": 186.12,
+      "end": 186.44
+    },
+    {
+      "word": "or",
+      "start": 186.44,
+      "end": 186.84
+    },
+    {
+      "word": "most",
+      "start": 186.84,
+      "end": 187.2
+    },
+    {
+      "word": "of",
+      "start": 187.2,
+      "end": 187.36
+    },
+    {
+      "word": "these",
+      "start": 187.36,
+      "end": 187.5
+    },
+    {
+      "word": "AI",
+      "start": 187.5,
+      "end": 187.86
+    },
+    {
+      "word": "SAS",
+      "start": 187.86,
+      "end": 188.16
+    },
+    {
+      "word": "tools.",
+      "start": 188.16,
+      "end": 188.56
+    },
+    {
+      "word": "So",
+      "start": 188.88,
+      "end": 189.1
+    },
+    {
+      "word": "that's",
+      "start": 189.1,
+      "end": 189.28
+    },
+    {
+      "word": "the",
+      "start": 189.28,
+      "end": 189.4
+    },
+    {
+      "word": "freemium",
+      "start": 189.4,
+      "end": 189.8
+    },
+    {
+      "word": "model",
+      "start": 189.8,
+      "end": 190.22
+    },
+    {
+      "word": "and",
+      "start": 190.22,
+      "end": 190.62
+    },
+    {
+      "word": "the",
+      "start": 190.62,
+      "end": 190.72
+    },
+    {
+      "word": "most",
+      "start": 190.72,
+      "end": 190.86
+    },
+    {
+      "word": "popular",
+      "start": 190.86,
+      "end": 191.22
+    },
+    {
+      "word": "method.",
+      "start": 191.22,
+      "end": 191.56
+    },
+    {
+      "word": "In",
+      "start": 191.86,
+      "end": 192.1
+    },
+    {
+      "word": "addition",
+      "start": 192.1,
+      "end": 192.34
+    },
+    {
+      "word": "to",
+      "start": 192.34,
+      "end": 192.54
+    },
+    {
+      "word": "this,",
+      "start": 192.54,
+      "end": 192.84
+    },
+    {
+      "word": "the",
+      "start": 193.16,
+      "end": 193.3
+    },
+    {
+      "word": "next",
+      "start": 193.3,
+      "end": 193.48
+    },
+    {
+      "word": "way",
+      "start": 193.48,
+      "end": 193.82
+    },
+    {
+      "word": "is",
+      "start": 193.82,
+      "end": 194.26
+    },
+    {
+      "word": "by",
+      "start": 194.26,
+      "end": 194.46
+    },
+    {
+      "word": "showing",
+      "start": 194.46,
+      "end": 194.78
+    },
+    {
+      "word": "ads.",
+      "start": 194.78,
+      "end": 195.24
+    },
+    {
+      "word": "So",
+      "start": 195.24,
+      "end": 195.7
+    },
+    {
+      "word": "you",
+      "start": 195.7,
+      "end": 195.82
+    },
+    {
+      "word": "might",
+      "start": 195.82,
+      "end": 195.96
+    },
+    {
+      "word": "have",
+      "start": 195.96,
+      "end": 196.1
+    },
+    {
+      "word": "noticed",
+      "start": 196.1,
+      "end": 196.44
+    },
+    {
+      "word": "when",
+      "start": 196.44,
+      "end": 196.96
+    },
+    {
+      "word": "you're",
+      "start": 196.96,
+      "end": 197.1
+    },
+    {
+      "word": "using",
+      "start": 197.1,
+      "end": 197.4
+    },
+    {
+      "word": "any",
+      "start": 197.4,
+      "end": 197.68
+    },
+    {
+      "word": "mobile",
+      "start": 197.68,
+      "end": 198.0
+    },
+    {
+      "word": "app",
+      "start": 198.0,
+      "end": 198.38
+    },
+    {
+      "word": "or",
+      "start": 198.38,
+      "end": 198.64
+    },
+    {
+      "word": "browsing",
+      "start": 198.64,
+      "end": 199.08
+    },
+    {
+      "word": "a",
+      "start": 199.08,
+      "end": 199.24
+    },
+    {
+      "word": "website,",
+      "start": 199.24,
+      "end": 199.56
+    },
+    {
+      "word": "you",
+      "start": 199.82,
+      "end": 199.98
+    },
+    {
+      "word": "get",
+      "start": 199.98,
+      "end": 200.12
+    },
+    {
+      "word": "these",
+      "start": 200.12,
+      "end": 200.32
+    },
+    {
+      "word": "ads",
+      "start": 200.32,
+      "end": 200.72
+    },
+    {
+      "word": "thrown",
+      "start": 200.72,
+      "end": 201.02
+    },
+    {
+      "word": "in",
+      "start": 201.02,
+      "end": 201.2
+    },
+    {
+      "word": "your",
+      "start": 201.2,
+      "end": 201.3
+    },
+    {
+      "word": "face.",
+      "start": 201.3,
+      "end": 201.58
+    },
+    {
+      "word": "And",
+      "start": 201.98,
+      "end": 202.22
+    },
+    {
+      "word": "these",
+      "start": 202.22,
+      "end": 202.36
+    },
+    {
+      "word": "companies",
+      "start": 202.36,
+      "end": 202.66
+    },
+    {
+      "word": "take",
+      "start": 202.66,
+      "end": 202.96
+    },
+    {
+      "word": "money",
+      "start": 202.96,
+      "end": 203.3
+    },
+    {
+      "word": "from",
+      "start": 203.3,
+      "end": 203.54
+    },
+    {
+      "word": "other",
+      "start": 203.54,
+      "end": 203.88
+    },
+    {
+      "word": "companies",
+      "start": 203.88,
+      "end": 204.26
+    },
+    {
+      "word": "to",
+      "start": 204.26,
+      "end": 204.46
+    },
+    {
+      "word": "show",
+      "start": 204.46,
+      "end": 204.66
+    },
+    {
+      "word": "their",
+      "start": 204.66,
+      "end": 204.84
+    },
+    {
+      "word": "ads",
+      "start": 204.84,
+      "end": 205.16
+    },
+    {
+      "word": "on",
+      "start": 205.16,
+      "end": 205.32
+    },
+    {
+      "word": "their",
+      "start": 205.32,
+      "end": 205.42
+    },
+    {
+      "word": "website.",
+      "start": 205.42,
+      "end": 205.82
+    },
+    {
+      "word": "Apart",
+      "start": 206.14,
+      "end": 206.4
+    },
+    {
+      "word": "from",
+      "start": 206.4,
+      "end": 206.64
+    },
+    {
+      "word": "that,",
+      "start": 206.64,
+      "end": 206.9
+    },
+    {
+      "word": "companies",
+      "start": 207.12,
+      "end": 207.48
+    },
+    {
+      "word": "also",
+      "start": 207.48,
+      "end": 207.88
+    },
+    {
+      "word": "use",
+      "start": 207.88,
+      "end": 208.28
+    },
+    {
+      "word": "AdSense,",
+      "start": 208.28,
+      "end": 208.9
+    },
+    {
+      "word": "allowing",
+      "start": 209.32,
+      "end": 209.72
+    },
+    {
+      "word": "Google",
+      "start": 209.72,
+      "end": 210.04
+    },
+    {
+      "word": "to",
+      "start": 210.04,
+      "end": 210.28
+    },
+    {
+      "word": "show",
+      "start": 210.28,
+      "end": 210.52
+    },
+    {
+      "word": "ads",
+      "start": 210.52,
+      "end": 210.94
+    },
+    {
+      "word": "on",
+      "start": 210.94,
+      "end": 211.08
+    },
+    {
+      "word": "their",
+      "start": 211.08,
+      "end": 211.18
+    },
+    {
+      "word": "website",
+      "start": 211.18,
+      "end": 211.6
+    },
+    {
+      "word": "and",
+      "start": 211.6,
+      "end": 212.02
+    },
+    {
+      "word": "make",
+      "start": 212.02,
+      "end": 212.2
+    },
+    {
+      "word": "money",
+      "start": 212.2,
+      "end": 212.48
+    },
+    {
+      "word": "out",
+      "start": 212.48,
+      "end": 212.68
+    },
+    {
+      "word": "of",
+      "start": 212.68,
+      "end": 212.78
+    },
+    {
+      "word": "it.",
+      "start": 212.78,
+      "end": 212.92
+    },
+    {
+      "word": "In",
+      "start": 213.26,
+      "end": 213.42
+    },
+    {
+      "word": "short,",
+      "start": 213.42,
+      "end": 213.74
+    },
+    {
+      "word": "if",
+      "start": 213.96,
+      "end": 214.1
+    },
+    {
+      "word": "you",
+      "start": 214.1,
+      "end": 214.2
+    },
+    {
+      "word": "aren't",
+      "start": 214.2,
+      "end": 214.32
+    },
+    {
+      "word": "paying",
+      "start": 214.32,
+      "end": 214.52
+    },
+    {
+      "word": "money,",
+      "start": 214.52,
+      "end": 214.86
+    },
+    {
+      "word": "you're",
+      "start": 215.12,
+      "end": 215.3
+    },
+    {
+      "word": "the",
+      "start": 215.3,
+      "end": 215.38
+    },
+    {
+      "word": "product.",
+      "start": 215.38,
+      "end": 215.78
+    },
+    {
+      "word": "So",
+      "start": 216.0,
+      "end": 216.22
+    },
+    {
+      "word": "that",
+      "start": 216.22,
+      "end": 216.38
+    },
+    {
+      "word": "brings",
+      "start": 216.38,
+      "end": 216.6
+    },
+    {
+      "word": "me",
+      "start": 216.6,
+      "end": 216.88
+    },
+    {
+      "word": "to",
+      "start": 216.88,
+      "end": 217.1
+    },
+    {
+      "word": "the",
+      "start": 217.1,
+      "end": 217.22
+    },
+    {
+      "word": "last",
+      "start": 217.22,
+      "end": 217.54
+    },
+    {
+      "word": "method",
+      "start": 217.54,
+      "end": 217.92
+    },
+    {
+      "word": "and",
+      "start": 217.92,
+      "end": 218.28
+    },
+    {
+      "word": "only",
+      "start": 218.28,
+      "end": 218.62
+    },
+    {
+      "word": "a",
+      "start": 218.62,
+      "end": 218.76
+    },
+    {
+      "word": "few",
+      "start": 218.76,
+      "end": 218.94
+    },
+    {
+      "word": "software",
+      "start": 218.94,
+      "end": 219.48
+    },
+    {
+      "word": "can",
+      "start": 219.48,
+      "end": 219.72
+    },
+    {
+      "word": "earn",
+      "start": 219.72,
+      "end": 219.88
+    },
+    {
+      "word": "from",
+      "start": 219.88,
+      "end": 220.1
+    },
+    {
+      "word": "this.",
+      "start": 220.1,
+      "end": 220.38
+    },
+    {
+      "word": "Donations",
+      "start": 220.8,
+      "end": 221.22
+    },
+    {
+      "word": "and",
+      "start": 221.22,
+      "end": 221.78
+    },
+    {
+      "word": "crowdfunding.",
+      "start": 221.78,
+      "end": 222.48
+    },
+    {
+      "word": "So",
+      "start": 222.48,
+      "end": 222.9
+    },
+    {
+      "word": "some",
+      "start": 222.9,
+      "end": 223.06
+    },
+    {
+      "word": "softwares",
+      "start": 223.06,
+      "end": 223.64
+    },
+    {
+      "word": "have",
+      "start": 223.64,
+      "end": 223.8
+    },
+    {
+      "word": "loyal",
+      "start": 223.8,
+      "end": 224.08
+    },
+    {
+      "word": "users",
+      "start": 224.08,
+      "end": 224.58
+    },
+    {
+      "word": "and",
+      "start": 224.58,
+      "end": 225.06
+    },
+    {
+      "word": "they",
+      "start": 225.06,
+      "end": 225.16
+    },
+    {
+      "word": "donate",
+      "start": 225.16,
+      "end": 225.52
+    },
+    {
+      "word": "and",
+      "start": 225.52,
+      "end": 225.92
+    },
+    {
+      "word": "fund",
+      "start": 225.92,
+      "end": 226.24
+    },
+    {
+      "word": "the",
+      "start": 226.24,
+      "end": 226.4
+    },
+    {
+      "word": "software",
+      "start": 226.4,
+      "end": 226.78
+    },
+    {
+      "word": "they",
+      "start": 226.78,
+      "end": 226.94
+    },
+    {
+      "word": "use.",
+      "start": 226.94,
+      "end": 227.26
+    },
+    {
+      "word": "Projects",
+      "start": 227.66,
+      "end": 228.1
+    },
+    {
+      "word": "like",
+      "start": 228.1,
+      "end": 228.22
+    },
+    {
+      "word": "Wikipedia",
+      "start": 228.22,
+      "end": 228.66
+    },
+    {
+      "word": "and",
+      "start": 228.66,
+      "end": 229.16
+    },
+    {
+      "word": "Blender",
+      "start": 229.16,
+      "end": 229.64
+    },
+    {
+      "word": "are",
+      "start": 229.64,
+      "end": 230.08
+    },
+    {
+      "word": "funded",
+      "start": 230.08,
+      "end": 230.52
+    },
+    {
+      "word": "by",
+      "start": 230.52,
+      "end": 230.74
+    },
+    {
+      "word": "their",
+      "start": 230.74,
+      "end": 230.9
+    },
+    {
+      "word": "community.",
+      "start": 230.9,
+      "end": 231.3
+    },
+    {
+      "word": "People",
+      "start": 231.64,
+      "end": 231.84
+    },
+    {
+      "word": "voluntarily",
+      "start": 231.84,
+      "end": 232.52
+    },
+    {
+      "word": "donate",
+      "start": 232.52,
+      "end": 232.96
+    },
+    {
+      "word": "because",
+      "start": 232.96,
+      "end": 233.48
+    },
+    {
+      "word": "they",
+      "start": 233.48,
+      "end": 233.74
+    },
+    {
+      "word": "believe",
+      "start": 233.74,
+      "end": 234.12
+    },
+    {
+      "word": "in",
+      "start": 234.12,
+      "end": 234.34
+    },
+    {
+      "word": "the",
+      "start": 234.34,
+      "end": 234.42
+    },
+    {
+      "word": "project.",
+      "start": 234.42,
+      "end": 234.9
+    },
+    {
+      "word": "It",
+      "start": 235.2,
+      "end": 235.3
+    },
+    {
+      "word": "doesn't",
+      "start": 235.3,
+      "end": 235.56
+    },
+    {
+      "word": "sound",
+      "start": 235.56,
+      "end": 235.96
+    },
+    {
+      "word": "scalable,",
+      "start": 235.96,
+      "end": 236.54
+    },
+    {
+      "word": "but",
+      "start": 236.54,
+      "end": 236.9
+    },
+    {
+      "word": "when",
+      "start": 236.9,
+      "end": 237.06
+    },
+    {
+      "word": "millions",
+      "start": 237.06,
+      "end": 237.58
+    },
+    {
+      "word": "of",
+      "start": 237.58,
+      "end": 237.84
+    },
+    {
+      "word": "users",
+      "start": 237.84,
+      "end": 238.12
+    },
+    {
+      "word": "want",
+      "start": 238.12,
+      "end": 238.38
+    },
+    {
+      "word": "to",
+      "start": 238.38,
+      "end": 238.46
+    },
+    {
+      "word": "contribute,",
+      "start": 238.46,
+      "end": 238.86
+    },
+    {
+      "word": "it",
+      "start": 239.16,
+      "end": 239.26
+    },
+    {
+      "word": "works.",
+      "start": 239.26,
+      "end": 239.56
+    },
+    {
+      "word": "So",
+      "start": 240.04,
+      "end": 240.16
+    },
+    {
+      "word": "these",
+      "start": 240.16,
+      "end": 240.28
+    },
+    {
+      "word": "are",
+      "start": 240.28,
+      "end": 240.4
+    },
+    {
+      "word": "the",
+      "start": 240.4,
+      "end": 240.46
+    },
+    {
+      "word": "five",
+      "start": 240.46,
+      "end": 240.82
+    },
+    {
+      "word": "main",
+      "start": 240.82,
+      "end": 241.04
+    },
+    {
+      "word": "ways",
+      "start": 241.04,
+      "end": 241.36
+    },
+    {
+      "word": "free",
+      "start": 241.36,
+      "end": 241.88
+    },
+    {
+      "word": "and",
+      "start": 241.88,
+      "end": 242.32
+    },
+    {
+      "word": "open",
+      "start": 242.32,
+      "end": 242.58
+    },
+    {
+      "word": "source",
+      "start": 242.58,
+      "end": 242.82
+    },
+    {
+      "word": "software",
+      "start": 242.82,
+      "end": 243.34
+    },
+    {
+      "word": "makes",
+      "start": 243.34,
+      "end": 243.76
+    },
+    {
+      "word": "money.",
+      "start": 243.76,
+      "end": 244.08
+    },
+    {
+      "word": "And",
+      "start": 244.52,
+      "end": 244.66
+    },
+    {
+      "word": "just",
+      "start": 244.66,
+      "end": 244.8
+    },
+    {
+      "word": "because",
+      "start": 244.8,
+      "end": 245.08
+    },
+    {
+      "word": "software",
+      "start": 245.08,
+      "end": 245.6
+    },
+    {
+      "word": "is",
+      "start": 245.6,
+      "end": 245.82
+    },
+    {
+      "word": "free",
+      "start": 245.82,
+      "end": 246.16
+    },
+    {
+      "word": "doesn't",
+      "start": 246.16,
+      "end": 246.72
+    },
+    {
+      "word": "mean",
+      "start": 246.72,
+      "end": 246.88
+    },
+    {
+      "word": "it",
+      "start": 246.88,
+      "end": 247.02
+    },
+    {
+      "word": "comes",
+      "start": 247.02,
+      "end": 247.22
+    },
+    {
+      "word": "without",
+      "start": 247.22,
+      "end": 247.54
+    },
+    {
+      "word": "a",
+      "start": 247.54,
+      "end": 247.64
+    },
+    {
+      "word": "cost.",
+      "start": 247.64,
+      "end": 248.06
+    },
+    {
+      "word": "Even",
+      "start": 248.28,
+      "end": 248.52
+    },
+    {
+      "word": "if",
+      "start": 248.52,
+      "end": 248.66
+    },
+    {
+      "word": "you",
+      "start": 248.66,
+      "end": 248.74
+    },
+    {
+      "word": "don't",
+      "start": 248.74,
+      "end": 248.98
+    },
+    {
+      "word": "pay",
+      "start": 248.98,
+      "end": 249.2
+    },
+    {
+      "word": "from",
+      "start": 249.2,
+      "end": 249.36
+    },
+    {
+      "word": "your",
+      "start": 249.36,
+      "end": 249.46
+    },
+    {
+      "word": "bank",
+      "start": 249.46,
+      "end": 249.66
+    },
+    {
+      "word": "account,",
+      "start": 249.66,
+      "end": 250.02
+    },
+    {
+      "word": "you're",
+      "start": 250.24,
+      "end": 250.42
+    },
+    {
+      "word": "still",
+      "start": 250.42,
+      "end": 250.72
+    },
+    {
+      "word": "paying",
+      "start": 250.72,
+      "end": 251.08
+    },
+    {
+      "word": "with",
+      "start": 251.08,
+      "end": 251.28
+    },
+    {
+      "word": "your",
+      "start": 251.28,
+      "end": 251.38
+    },
+    {
+      "word": "time,",
+      "start": 251.38,
+      "end": 251.76
+    },
+    {
+      "word": "your",
+      "start": 251.76,
+      "end": 252.2
+    },
+    {
+      "word": "attention",
+      "start": 252.2,
+      "end": 252.58
+    },
+    {
+      "word": "and",
+      "start": 252.58,
+      "end": 253.08
+    },
+    {
+      "word": "your",
+      "start": 253.08,
+      "end": 253.2
+    },
+    {
+      "word": "data.",
+      "start": 253.2,
+      "end": 253.44
+    },
+    {
+      "word": "And",
+      "start": 253.92,
+      "end": 254.08
+    },
+    {
+      "word": "once",
+      "start": 254.08,
+      "end": 254.22
+    },
+    {
+      "word": "you",
+      "start": 254.22,
+      "end": 254.36
+    },
+    {
+      "word": "rely",
+      "start": 254.36,
+      "end": 254.68
+    },
+    {
+      "word": "heavily",
+      "start": 254.68,
+      "end": 255.14
+    },
+    {
+      "word": "on",
+      "start": 255.14,
+      "end": 255.4
+    },
+    {
+      "word": "a",
+      "start": 255.4,
+      "end": 255.5
+    },
+    {
+      "word": "tool,",
+      "start": 255.5,
+      "end": 255.74
+    },
+    {
+      "word": "switching",
+      "start": 256.14,
+      "end": 256.44
+    },
+    {
+      "word": "later",
+      "start": 256.44,
+      "end": 256.86
+    },
+    {
+      "word": "can",
+      "start": 256.86,
+      "end": 257.32
+    },
+    {
+      "word": "be",
+      "start": 257.32,
+      "end": 257.46
+    },
+    {
+      "word": "painful.",
+      "start": 257.46,
+      "end": 257.86
+    },
+    {
+      "word": "So",
+      "start": 258.1,
+      "end": 258.32
+    },
+    {
+      "word": "these",
+      "start": 258.32,
+      "end": 258.48
+    },
+    {
+      "word": "free",
+      "start": 258.48,
+      "end": 258.68
+    },
+    {
+      "word": "software",
+      "start": 258.68,
+      "end": 259.18
+    },
+    {
+      "word": "aren't",
+      "start": 259.18,
+      "end": 259.7
+    },
+    {
+      "word": "always",
+      "start": 259.7,
+      "end": 260.06
+    },
+    {
+      "word": "free.",
+      "start": 260.06,
+      "end": 260.44
+    },
+    {
+      "word": "You're",
+      "start": 260.76,
+      "end": 260.84
+    },
+    {
+      "word": "just",
+      "start": 260.84,
+      "end": 260.94
+    },
+    {
+      "word": "paying",
+      "start": 260.94,
+      "end": 261.3
+    },
+    {
+      "word": "in",
+      "start": 261.3,
+      "end": 261.52
+    },
+    {
+      "word": "ways",
+      "start": 261.52,
+      "end": 261.76
+    },
+    {
+      "word": "you",
+      "start": 261.76,
+      "end": 261.96
+    },
+    {
+      "word": "might",
+      "start": 261.96,
+      "end": 262.08
+    },
+    {
+      "word": "not",
+      "start": 262.08,
+      "end": 262.26
+    },
+    {
+      "word": "notice.",
+      "start": 262.26,
+      "end": 262.64
+    },
+    {
+      "word": "So",
+      "start": 263.0,
+      "end": 263.2
+    },
+    {
+      "word": "that",
+      "start": 263.2,
+      "end": 263.36
+    },
+    {
+      "word": "wraps",
+      "start": 263.36,
+      "end": 263.66
+    },
+    {
+      "word": "up",
+      "start": 263.66,
+      "end": 263.84
+    },
+    {
+      "word": "this",
+      "start": 263.84,
+      "end": 264.02
+    },
+    {
+      "word": "video.",
+      "start": 264.02,
+      "end": 264.36
+    },
+    {
+      "word": "By",
+      "start": 264.68,
+      "end": 264.84
+    },
+    {
+      "word": "the",
+      "start": 264.84,
+      "end": 264.94
+    },
+    {
+      "word": "way,",
+      "start": 264.94,
+      "end": 265.2
+    },
+    {
+      "word": "if",
+      "start": 265.4,
+      "end": 265.58
+    },
+    {
+      "word": "you",
+      "start": 265.58,
+      "end": 265.64
+    },
+    {
+      "word": "want",
+      "start": 265.64,
+      "end": 265.74
+    },
+    {
+      "word": "to",
+      "start": 265.74,
+      "end": 265.8
+    },
+    {
+      "word": "level",
+      "start": 265.8,
+      "end": 265.98
+    },
+    {
+      "word": "up",
+      "start": 265.98,
+      "end": 266.16
+    },
+    {
+      "word": "your",
+      "start": 266.16,
+      "end": 266.24
+    },
+    {
+      "word": "development",
+      "start": 266.24,
+      "end": 266.56
+    },
+    {
+      "word": "skills",
+      "start": 266.56,
+      "end": 266.96
+    },
+    {
+      "word": "by",
+      "start": 266.96,
+      "end": 267.22
+    },
+    {
+      "word": "building",
+      "start": 267.22,
+      "end": 267.54
+    },
+    {
+      "word": "some",
+      "start": 267.54,
+      "end": 267.82
+    },
+    {
+      "word": "real",
+      "start": 267.82,
+      "end": 268.22
+    },
+    {
+      "word": "world",
+      "start": 268.22,
+      "end": 268.42
+    },
+    {
+      "word": "projects,",
+      "start": 268.42,
+      "end": 268.98
+    },
+    {
+      "word": "check",
+      "start": 269.36,
+      "end": 269.54
+    },
+    {
+      "word": "out",
+      "start": 269.54,
+      "end": 269.74
+    },
+    {
+      "word": "Code",
+      "start": 269.74,
+      "end": 269.94
+    },
+    {
+      "word": "Crafters.",
+      "start": 269.94,
+      "end": 270.66
+    },
+    {
+      "word": "You",
+      "start": 270.82,
+      "end": 270.96
+    },
+    {
+      "word": "get",
+      "start": 270.96,
+      "end": 271.04
+    },
+    {
+      "word": "to",
+      "start": 271.04,
+      "end": 271.14
+    },
+    {
+      "word": "build",
+      "start": 271.14,
+      "end": 271.4
+    },
+    {
+      "word": "things",
+      "start": 271.4,
+      "end": 271.72
+    },
+    {
+      "word": "like",
+      "start": 271.72,
+      "end": 271.98
+    },
+    {
+      "word": "Git,",
+      "start": 271.98,
+      "end": 272.24
+    },
+    {
+      "word": "Redis,",
+      "start": 272.72,
+      "end": 273.14
+    },
+    {
+      "word": "or",
+      "start": 273.48,
+      "end": 273.66
+    },
+    {
+      "word": "even",
+      "start": 273.66,
+      "end": 273.94
+    },
+    {
+      "word": "an",
+      "start": 273.94,
+      "end": 274.1
+    },
+    {
+      "word": "HTTP",
+      "start": 274.1,
+      "end": 274.6
+    },
+    {
+      "word": "server",
+      "start": 274.6,
+      "end": 275.28
+    },
+    {
+      "word": "from",
+      "start": 275.28,
+      "end": 275.5
+    },
+    {
+      "word": "scratch.",
+      "start": 275.5,
+      "end": 275.74
+    },
+    {
+      "word": "The",
+      "start": 276.3,
+      "end": 276.4
+    },
+    {
+      "word": "link",
+      "start": 276.4,
+      "end": 276.62
+    },
+    {
+      "word": "is",
+      "start": 276.62,
+      "end": 277.0
+    },
+    {
+      "word": "in",
+      "start": 277.0,
+      "end": 277.1
+    },
+    {
+      "word": "the",
+      "start": 277.1,
+      "end": 277.18
+    },
+    {
+      "word": "description.",
+      "start": 277.18,
+      "end": 277.52
+    },
+    {
+      "word": "If",
+      "start": 277.9,
+      "end": 278.02
+    },
+    {
+      "word": "you",
+      "start": 278.02,
+      "end": 278.12
+    },
+    {
+      "word": "enjoyed",
+      "start": 278.12,
+      "end": 278.4
+    },
+    {
+      "word": "this",
+      "start": 278.4,
+      "end": 278.56
+    },
+    {
+      "word": "video,",
+      "start": 278.56,
+      "end": 278.86
+    },
+    {
+      "word": "make",
+      "start": 279.22,
+      "end": 279.32
+    },
+    {
+      "word": "sure",
+      "start": 279.32,
+      "end": 279.52
+    },
+    {
+      "word": "to",
+      "start": 279.52,
+      "end": 279.64
+    },
+    {
+      "word": "like,",
+      "start": 279.64,
+      "end": 279.9
+    },
+    {
+      "word": "share",
+      "start": 280.22,
+      "end": 280.56
+    },
+    {
+      "word": "and",
+      "start": 280.56,
+      "end": 280.94
+    },
+    {
+      "word": "subscribe.",
+      "start": 280.94,
+      "end": 281.34
+    },
+    {
+      "word": "And",
+      "start": 281.76,
+      "end": 281.84
+    },
+    {
+      "word": "I'll",
+      "start": 281.84,
+      "end": 281.98
+    },
+    {
+      "word": "see",
+      "start": 281.98,
+      "end": 282.2
+    },
+    {
+      "word": "you",
+      "start": 282.2,
+      "end": 282.4
+    },
+    {
+      "word": "in",
+      "start": 282.4,
+      "end": 282.5
+    },
+    {
+      "word": "the",
+      "start": 282.5,
+      "end": 282.56
+    },
+    {
+      "word": "next",
+      "start": 282.56,
+      "end": 282.74
+    },
+    {
+      "word": "one.",
+      "start": 282.74,
+      "end": 282.96
+    }
+  ]
+}

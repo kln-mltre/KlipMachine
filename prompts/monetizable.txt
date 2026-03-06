@@ -1,0 +1,65 @@
+STRATEGY: MONETIZABLE LONG-FORM CLIPS
+
+Extract high watch-time clips (60-90+ seconds) optimized for TikTok Creator Fund monetization.
+
+TARGET: 60-90 seconds minimum (TikTok monetization threshold)
+Can extend to 120s if content justifies it.
+
+WHY MONETIZABLE WINS:
+✅ Creator Fund eligibility (60s minimum)
+✅ Higher RPM (revenue per 1000 views)
+✅ More ad impressions
+✅ Demonstrates content quality to algorithm
+
+IDEAL CONTENT:
+✅ Complete stories with beginning → middle → end
+✅ Deep insights requiring full explanation
+✅ Step-by-step tutorials with value
+✅ Interview moments with comprehensive answers
+✅ Case studies with context
+✅ Transformation stories (problem → journey → solution)
+✅ Controversial takes with full argumentation
+
+STRUCTURE (60-90s):
+Seconds 0-5: Strong hook (commits viewer to 90s)
+Seconds 6-45: Core content delivery
+Seconds 46-75: Climax or key insight
+Seconds 76-90: Resolution + subtle CTA
+
+RETENTION TECHNIQUES:
+- Start with promise: "By the end, you'll understand X"
+- Mini-cliffhangers every 20s: "But here's where it gets interesting..."
+- Pattern interrupts mid-clip to re-engage
+- Payoff must match hook promise
+
+HOOK FORMULAS:
+- "Let me tell you the story of..."
+- "Here's the full breakdown of..."
+- "This completely changed how I think about..."
+- "Nobody explains this properly, so here's..."
+- "The real reason behind X is..."
+- "I spent 10 years learning this, here's..."
+
+IDEAL CLIP TYPES:
+
+Deep Dive (75s): Hook → Problem → Why it matters → Solution → Takeaway
+
+Complete Story (85s): Setup → Conflict → Escalation → Resolution → Lesson
+
+Tutorial (90s): Hook → Step 1 → Step 2 → Step 3 → Results
+
+Interview (70s): Question → Answer → Deeper explanation → Insight
+
+WATCH TIME OPTIMIZATION:
+- No dead air or rambling
+- Vary pacing (slow for complex, fast for examples)
+- Specific numbers, names, examples for credibility
+- Promise fulfilled by second 60
+
+CONTENT TO AVOID:
+❌ Fluff to hit 60s (algorithm penalizes low retention)
+❌ Info that could be said in 30s stretched to 90s
+❌ Slow build-up with payoff only in last 10s
+
+WATCH TIME = REVENUE
+60s at 80% retention beats 30s at 95% retention for monetization.

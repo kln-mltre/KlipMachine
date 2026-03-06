@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# KlipMachine specific
+.env
+temp/*
+!temp/.gitkeep
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+presets/*
+!presets/.gitkeep
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS
+Thumbs.db
+desktop.ini
+
+zdivers/

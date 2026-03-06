@@ -1,0 +1,38 @@
+{
+  "provider": "groq",
+  "total_duration": 75.0,
+  "clips": [
+    {
+      "start": 0.0,
+      "end": 20.0,
+      "title": "Free Software Secret",
+      "hook": "So have you ever wondered",
+      "score": 0.85,
+      "reason": "Raises curiosity and creates intrigue"
+    },
+    {
+      "start": 90.0,
+      "end": 110.0,
+      "title": "Data Monetization",
+      "hook": "So this is uncommon",
+      "score": 0.92,
+      "reason": "Reveals a surprising and controversial method"
+    },
+    {
+      "start": 135.0,
+      "end": 155.0,
+      "title": "Open Source Plus Paid Support",
+      "hook": "So as I said already",
+      "score": 0.78,
+      "reason": "Explains a valuable business model"
+    },
+    {
+      "start": 225.0,
+      "end": 240.0,
+      "title": "Donations and Crowdfunding",
+      "hook": "So some softwares have loyal users",
+      "score": 0.82,
+      "reason": "Highlights a unique and relatable method"
+    }
+  ]
+}
