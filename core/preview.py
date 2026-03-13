@@ -13,8 +13,9 @@ from core.editor import (
     verify_ffmpeg,
     verify_ffprobe,
     get_video_resolution,
-    calculate_center_crop,
-    build_blur_fill_filter
+    build_blur_fill_filter,
+    build_black_fill_filter,
+    normalize_crop_mode
 )
 from config import config
 
@@ -42,8 +43,8 @@ def generate_preview_frame(
         video_path: Path to the source video file.
         timestamp: Time position to sample, in seconds.
         output_path: Destination image file path (JPEG recommended for speed).
-        crop_mode: Spatial transform mode — "none", "center" (9:16 crop), or "blur" (blur fill).
-        blur_zoom: Zoom factor applied only in blur fill mode (default 1.08 = 8 % zoom).
+        crop_mode: Spatial transform mode — "none", "black" (black fill), or "blur" (blur fill).
+        blur_zoom: Zoom factor applied in black/blur fill modes (default 1.08 = 8 % zoom).
         target_width: Output frame width in pixels (default 1080).
         target_height: Output frame height in pixels (default 1920).
         subtitle_path: Optional path to an .ass subtitle file to burn into the frame.
@@ -61,6 +62,7 @@ def generate_preview_frame(
         raise FFmpegError("FFmpeg not found. Install FFmpeg.")
 
     src_width, src_height = get_video_resolution(video_path)
+    crop_mode = normalize_crop_mode(crop_mode)
     
     # Input-side seek (-ss before -i) skips decoding frames before the target, reducing latency.
     cmd = [
@@ -101,19 +103,16 @@ def generate_preview_frame(
             filter_complex = f"{blur_filter}[base];"
             base_video = "[base]"
 
-        elif crop_mode == "center":
-            # Center crop: trim to 9:16 then scale to the target canvas.
-            crop_params = calculate_center_crop(
+        elif crop_mode == "black":
+            # Black fill: same foreground sizing/zoom as blur mode, but over a black background.
+            black_filter = build_black_fill_filter(
                 src_width,
                 src_height,
                 target_width=target_width,
-                target_height=target_height
+                target_height=target_height,
+                zoom=blur_zoom
             )
-            filter_complex = (
-                f"[0:v]crop={crop_params['w']}:{crop_params['h']}:"
-                f"{crop_params['x']}:{crop_params['y']},"
-                f"scale={target_width}:{target_height}[base];"
-            )
+            filter_complex = f"{black_filter}[base];"
             base_video = "[base]"
 
         else:
@@ -175,21 +174,17 @@ def generate_preview_frame(
             filter_complex = f"{blur_filter}{subtitle_filter}"
             cmd.extend(["-filter_complex", filter_complex])
 
-        elif crop_mode == "center":
-            # Center crop to 9:16 then scale; subtitle appended at the end of the chain.
-            crop_params = calculate_center_crop(
+        elif crop_mode == "black":
+            # Black fill: same foreground sizing/zoom as blur mode, but over a black background.
+            black_filter = build_black_fill_filter(
                 src_width,
                 src_height,
                 target_width=target_width,
-                target_height=target_height
+                target_height=target_height,
+                zoom=blur_zoom
             )
-            vf = (
-                f"crop={crop_params['w']}:{crop_params['h']}:"
-                f"{crop_params['x']}:{crop_params['y']},"
-                f"scale={target_width}:{target_height}"
-                f"{subtitle_filter}"
-            )
-            cmd.extend(["-vf", vf])
+            filter_complex = f"{black_filter}{subtitle_filter}"
+            cmd.extend(["-filter_complex", filter_complex])
 
         else:  # none
             # Preserve original aspect ratio with letterboxing; no crop applied.

@@ -10,7 +10,7 @@ import zipfile
 import io
 
 from config import config
-from core.editor import ClipConfig, batch_export, sanitize_filename
+from core.editor import ClipConfig, batch_export, sanitize_filename, normalize_crop_mode
 from core.transcriber import create_viral_subtitle_segments, export_ass, create_subtitle_segments, export_srt
 from core.exceptions import KlipMachineError
 
@@ -51,6 +51,7 @@ def _show_export_interface():
     analysis = st.session_state.analysis
     selected_indices = st.session_state.selected_clips
     selected_clips = [analysis.clips[i] for i in selected_indices]
+    crop_mode = normalize_crop_mode(st.session_state.crop_mode)
 
     st.markdown("#### Export Summary")
     
@@ -64,8 +65,8 @@ def _show_export_interface():
         st.metric("Format", {
             "none": "Original",
             "blur": "Blur Fill",
-            "center": "Center Crop"
-        }[st.session_state.crop_mode])
+            "black": "Black Fill"
+        }[crop_mode])
     
     st.markdown("---")
 
@@ -74,7 +75,7 @@ def _show_export_interface():
     col_left, col_right = st.columns(2)
     
     with col_left:
-        st.markdown(f"**Crop Mode:** {st.session_state.crop_mode}")
+        st.markdown(f"**Crop Mode:** {crop_mode}")
         st.markdown(f"**Subtitle Style:** {st.session_state.subtitle_style}")
     
     with col_right:

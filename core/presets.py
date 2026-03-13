@@ -30,7 +30,7 @@ class ExportPreset:
     single reusable unit that can be serialised to/from JSON.
     """
     name: str
-    crop_mode: str  # "none", "center", "blur"
+    crop_mode: str  # "none", "black", "blur"
     blur_zoom: float  # Zoom factor for blur mode (1.0 - 2.0)
     subtitle_style: str  # "none", "glow", "pop"
     subtitle_color: str  # "Purple", "Yellow", "Red", etc.
@@ -57,7 +57,10 @@ class ExportPreset:
         Returns:
             Populated ExportPreset instance.
         """
-        return cls(**data)
+        normalized = dict(data)
+        if normalized.get("crop_mode") == "center":
+            normalized["crop_mode"] = "black"
+        return cls(**normalized)
 
 
 # ============================================================================
@@ -77,8 +80,8 @@ PRESET_VIRAL = ExportPreset(
 
 PRESET_CLEAN = ExportPreset(
     name="Clean",
-    crop_mode="center",
-    blur_zoom=1.0,  # No zoom applied in center-crop mode.
+    crop_mode="black",
+    blur_zoom=1.0,  
     subtitle_style="glow",
     subtitle_color="Yellow",
     subtitle_font_size=26,

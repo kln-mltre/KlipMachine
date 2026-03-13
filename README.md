@@ -57,7 +57,7 @@ Before rendering, you can review the AI suggestions. The interface provides a gl
 ### Step 2: Design
 ![Step 2 - Design](assets/step2.png)
 
-Configure the visual output of the selected clips. You can apply crop modes (Original, Center Crop 9:16, or Blur Fill 9:16) and customize subtitle styles, font sizes, colors, and vertical positioning. A real-time preview generator extracts a single frame and composites the requested filters and text to validate the design before initiating a full render.
+Configure the visual output of the selected clips. You can apply crop modes (Original, Black Fill 9:16, or Blur Fill 9:16) and customize subtitle styles, font sizes, colors, and vertical positioning. A real-time preview generator extracts a single frame and composites the requested filters and text to validate the design before initiating a full render.
 
 ### Step 3: Export
 ![Step 3 - Export](assets/step3.png)

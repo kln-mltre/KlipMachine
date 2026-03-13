@@ -12,6 +12,7 @@ from config import config
 from core.preview import generate_preview_frame
 from core.presets import get_all_presets, ExportPreset
 from core.transcriber import create_viral_subtitle_segments, export_ass
+from core.editor import normalize_crop_mode
 
 from .shared import navigate_to_step, format_timestamp, format_duration
 
@@ -126,15 +127,17 @@ def render_step2_design():
         st.markdown("---")
 
         st.markdown("**Export Format**")
+        st.session_state.crop_mode = normalize_crop_mode(st.session_state.crop_mode)
+
         new_crop_mode = st.radio(
             "format",
-            ["none", "blur", "center"],
+            ["none", "blur", "black"],
             format_func=lambda x: {
                 "none": "Original",
                 "blur": "Blur Fill (9:16)",
-                "center": "Center Crop (9:16)"
+                "black": "Black Fill (9:16)"
             }[x],
-            index=["none", "blur", "center"].index(st.session_state.crop_mode),
+            index=["none", "blur", "black"].index(st.session_state.crop_mode),
             label_visibility="collapsed"
         )
         
@@ -142,7 +145,7 @@ def render_step2_design():
             st.session_state.crop_mode = new_crop_mode
             st.rerun()
         
-        if st.session_state.crop_mode == "blur":
+        if st.session_state.crop_mode in ["blur", "black"]:
             st.markdown("**Zoom Level**")
             zoom_percent = st.slider(
                 "zoom",
@@ -360,7 +363,7 @@ def _apply_preset(preset: ExportPreset):
     Args:
         preset: The preset whose values should be applied to the current session.
     """
-    st.session_state.crop_mode = preset.crop_mode
+    st.session_state.crop_mode = normalize_crop_mode(preset.crop_mode)
     st.session_state.blur_zoom = preset.blur_zoom
     st.session_state.subtitle_style = preset.subtitle_style
     st.session_state.subtitle_color = preset.subtitle_color
@@ -437,7 +440,8 @@ def _generate_clip_preview(clip_idx: int, clip, show_ui: bool = False) -> Path:
         Path to the output JPEG, or ``None`` if generation failed.
     """
     # Hash all parameters that affect visual output to get a cache key.
-    settings_hash = f"{clip_idx}_{st.session_state.crop_mode}_{st.session_state.blur_zoom:.2f}_{st.session_state.subtitle_style}_{st.session_state.subtitle_color}_{st.session_state.font_size}_{st.session_state.subtitle_position}_{show_ui}"
+    preview_cache_version = "v2"
+    settings_hash = f"{preview_cache_version}_{clip_idx}_{st.session_state.crop_mode}_{st.session_state.blur_zoom:.2f}_{st.session_state.subtitle_style}_{st.session_state.subtitle_color}_{st.session_state.font_size}_{st.session_state.subtitle_position}_{show_ui}"
     cache_key = f"preview_cache_{settings_hash}"
 
     if cache_key in st.session_state:

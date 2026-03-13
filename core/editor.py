@@ -14,6 +14,27 @@ from typing import Optional, Callable
 from core.exceptions import ExportError, FFmpegError, InvalidClipError
 from config import config
 
+
+def normalize_crop_mode(crop_mode: str) -> str:
+    """
+    Normalize crop mode names, including legacy aliases.
+
+    Args:
+        crop_mode: Raw crop mode value from UI, presets, or CLI.
+
+    Returns:
+        Canonical crop mode string.
+    """
+    if crop_mode is None:
+        return "none"
+
+    normalized = str(crop_mode).lower()
+    if normalized == "center":
+        return "black"
+    if normalized in {"none", "blur", "black"}:
+        return normalized
+    return "none"
+
 @dataclass
 class ClipConfig:
     """Configuration for a single clip to extract."""
@@ -209,6 +230,47 @@ def build_blur_fill_filter(
     
     return filter_complex
 
+
+def build_black_fill_filter(
+        src_width: int,
+        src_height: int,
+        target_width: int = 1080,
+        target_height: int = 1920,
+        zoom: float = 1.08
+) -> str:
+    """
+    Build FFmpeg filter for black fill effect with the same zoom logic as blur fill.
+
+    This mode keeps the exact foreground sizing/positioning behavior of blur fill,
+    but replaces the blurred background with a pure black canvas.
+
+    Args:
+        src_width: Source video width
+        src_height: Source video height
+        target_width: Target width (default 1080)
+        target_height: Target height (default 1920)
+        zoom: Zoom factor for main video (1.08 = 8% zoom)
+
+    Returns:
+        FFmpeg filter string
+    """
+    max_video_height = int(target_height * 0.65)
+
+    src_ratio = src_width / src_height
+    scaled_height = max_video_height
+    scaled_width = int(scaled_height * src_ratio)
+
+    final_width = int(scaled_width * zoom)
+    final_height = int(scaled_height * zoom)
+
+    filter_complex = (
+        f"color=c=black:s={target_width}x{target_height},setpts=PTS-STARTPTS[bg];"
+        f"[0:v]setpts=PTS-STARTPTS,scale={final_width}:{final_height}[scaled];"
+        f"[bg][scaled]overlay=(W-w)/2:(H-h)/2:format=auto:shortest=1"
+    )
+
+    return filter_complex
+
 def detect_hardware_acceleration() -> Optional[str]:
     """
     Detect available hardware acceleration.
@@ -334,7 +396,7 @@ def extract_clip(
     video_path: Path,
     clip: ClipConfig,
     output_path: Path,
-    crop_mode: str = "center",  # "center", "blur", or "none"
+    crop_mode: str = "black",  # "black", "blur", or "none"
     blur_zoom: float = 1.08,
     subtitle_file: Optional[Path] = None,  # .ass subtitle file to burn into the clip
     mask_info: Optional[dict] = None,  # Per-word box-highlight timing metadata
@@ -345,14 +407,14 @@ def extract_clip(
     Extract and export a single clip from a source video.
 
     Applies time-bounded extraction with optional margins, spatial transformation
-    (center crop or blur fill), subtitle burn-in, and hardware acceleration.
+    (black fill or blur fill), subtitle burn-in, and hardware acceleration.
 
     Args:
         video_path: Path to the source video file.
         clip: ClipConfig instance carrying timestamps, title, and margin values.
         output_path: Destination path for the exported .mp4 file.
-        crop_mode: Spatial transform mode — "center" (9:16 crop), "blur" (blur fill), or "none".
-        blur_zoom: Zoom factor applied in blur fill mode (default 1.08 = 8% zoom).
+        crop_mode: Spatial transform mode — "black" (black fill), "blur" (blur fill), or "none".
+        blur_zoom: Zoom factor applied in black/blur fill modes (default 1.08 = 8% zoom).
         subtitle_file: Optional path to an .ass file to burn into the output.
         mask_info: Optional per-word timing dict for box-highlight overlay pipeline.
         hw_accel: Hardware encoder identifier ("nvenc", "videotoolbox", or None).
@@ -382,11 +444,13 @@ def extract_clip(
     
     src_width, src_height = get_video_resolution(video_path)
     
+    crop_mode = normalize_crop_mode(crop_mode)
+
     crop_params = None
     blur_filter = None
     
-    if crop_mode == "center":
-        crop_params = calculate_center_crop(src_width, src_height)
+    if crop_mode == "black":
+        blur_filter = build_black_fill_filter(src_width, src_height, zoom=blur_zoom)
     elif crop_mode == "blur":
         blur_filter = build_blur_fill_filter(src_width, src_height,zoom=blur_zoom)
     # else: mode "none" — pass video through without spatial modification.
@@ -485,7 +549,7 @@ def batch_export(
     video_path: Path,
     clips: list[ClipConfig],
     output_dir: Path,
-    crop_mode: str = "center",  
+    crop_mode: str = "black",  
     blur_zoom: float = 1.08,
     subtitle_files: Optional[list[Optional[tuple[Path, dict]]]] = None,  # (ass_path, mask_info)
     progress_callback: Optional[Callable[[int, int], None]] = None
@@ -497,7 +561,7 @@ def batch_export(
         video_path: Source video file
         clips: List of clip configurations
         output_dir: Output directory
-        crop_mode: "center" (9:16 vertical) or "none" (preserve original)
+        crop_mode: "black"/"blur" (9:16 fill) or "none" (preserve original)
         progress_callback: Optional callback(current, total)
         
     Returns:
@@ -505,6 +569,8 @@ def batch_export(
     """
     output_dir.mkdir(parents=True, exist_ok=True)
     
+    crop_mode = normalize_crop_mode(crop_mode)
+
     # Detect hardware acceleration once and reuse for all clips in the batch.
     hw_accel = detect_hardware_acceleration()
     if hw_accel:
@@ -513,8 +579,10 @@ def batch_export(
         print("[INFO] Using software encoding (no hardware acceleration detected)")
 
     # Report active crop mode for operator awareness.
-    if crop_mode == "center":
-        print("[INFO] Crop mode: center crop 9:16 (1080x1920)")
+    if crop_mode == "blur":
+        print("[INFO] Crop mode: blur fill 9:16 (1080x1920)")
+    elif crop_mode == "black":
+        print("[INFO] Crop mode: black fill 9:16 (1080x1920)")
     else:
         print("[INFO] Crop mode: original format (no crop)")
     
