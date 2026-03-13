@@ -32,6 +32,19 @@ WHAT TO AVOID:
 ❌ Slow-paced low-energy segments
 ❌ Technical jargon without explanation
 
+HOOK TEXT RULES (VERY IMPORTANT):
+For each selected clip, generate `hook` as a TikTok on-screen text (NOT transcript copy):
+- Must be understandable in under 3 seconds by a new viewer
+- Must instantly give context + promise (what the viewer will get)
+- Short, clear, specific, natural
+- Same language as transcript
+- 25-65 characters preferred (hard max 80)
+- Emojis allowed if useful: 0 to 2 max
+- No hashtags
+- No quotes
+- No clickbait without substance
+- Avoid vague hooks like "Incroyable..." without context
+
 SCORING SYSTEM (0.0 to 1.0):
 - 0.9-1.0: Exceptional viral potential
 - 0.7-0.9: Strong engagement likely
@@ -49,7 +62,7 @@ RESPONSE FORMAT (strict JSON):
       "start": "01:23",
       "end": "02:15",
       "title": "Short punchy title (max 50 chars)",
-      "hook": "Exact opening phrase that grabs attention",
+      "hook": "TikTok-ready on-screen hook text",
       "score": 0.92,
       "reason": "Why this moment works (emotion/insight/surprise)"
     }
