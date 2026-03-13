@@ -52,12 +52,12 @@ The pipeline accepts either a YouTube URL or a local video file. You define the 
 ### Step 1.5: Refine Clip
 ![Step 1.5 - Refine](assets/step1-5.png)
 
-Before rendering, you can review the AI suggestions. The interface provides a global seek slider and a fine-tune timeline to adjust the start and end boundaries of each clip. A data editor allows for word-by-word correction of the generated transcript to fix spelling or timing errors.
+Before rendering, you can review the AI suggestions. The interface provides a global seek slider and a fine-tune timeline to adjust the start and end boundaries of each clip. A data editor allows for word-by-word correction of the generated transcript to fix spelling or timing errors. Each clip also exposes a **Hook** text field: the AI pre-fills a short attention-grabbing sentence that will appear as a styled banner overlay at the top of the video.
 
 ### Step 2: Design
 ![Step 2 - Design](assets/step2.png)
 
-Configure the visual output of the selected clips. You can apply crop modes (Original, Black Fill 9:16, or Blur Fill 9:16) and customize subtitle styles, font sizes, colors, and vertical positioning. A real-time preview generator extracts a single frame and composites the requested filters and text to validate the design before initiating a full render.
+Configure the visual output of the selected clips. You can apply crop modes (Original, Black Fill 9:16, or Blur Fill 9:16) and customize subtitle styles, font sizes, colors, and vertical positioning. The **Hook Overlay** controls let you toggle, resize, and reposition the hook banner for the previewed clip. A real-time preview generator extracts a single frame and composites the requested filters, subtitles, and hook banner to validate the design before initiating a full render. Settings (including hook defaults) can be saved as reusable named presets.
 
 ### Step 3: Export
 ![Step 3 - Export](assets/step3.png)

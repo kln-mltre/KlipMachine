@@ -36,6 +36,8 @@ class ExportPreset:
     subtitle_color: str  # "Purple", "Yellow", "Red", etc.
     subtitle_font_size: int  # Font size in pixels (20-60)
     subtitle_position: int  # Vertical position percentage (0-100, 0=top, 100=bottom)
+    hook_font_size: int = 20  # Hook banner font size (20-50)
+    hook_position: float = 8.0  # Hook banner vertical position % from top (5-99)
     
     def to_dict(self) -> dict:
         """
@@ -60,6 +62,8 @@ class ExportPreset:
         normalized = dict(data)
         if normalized.get("crop_mode") == "center":
             normalized["crop_mode"] = "black"
+        normalized.setdefault("hook_font_size", 20)
+        normalized.setdefault("hook_position", 8.0)
         return cls(**normalized)
 
 

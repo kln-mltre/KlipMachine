@@ -20,16 +20,28 @@ def _save_current_preset(name: str):
     """
     Persist the current session-state settings as a named user preset.
 
-    Serialises crop mode, blur zoom, subtitle style, colour, font size, and
-    vertical position into an ``ExportPreset`` and writes it to disk via
-    ``save_user_preset``.  On success, updates ``last_preset`` and triggers a
-    Streamlit rerun so the preset dropdown reflects the new entry.
+    Serialises crop mode, blur zoom, subtitle style, colour, font size,
+    vertical position, and hook defaults into an ``ExportPreset`` and writes
+    it to disk via ``save_user_preset``.  Hook values are read from the first
+    selected clip (or from global defaults when no clip is selected).  On
+    success, updates ``last_preset`` and triggers a Streamlit rerun so the
+    preset dropdown reflects the new entry.
 
     Args:
         name: Human-readable preset name provided by the user.
     """
     from core.presets import ExportPreset, save_user_preset
-    
+
+    # Read hook defaults from the first selected clip when available.
+    hook_font_size = 20
+    hook_position = 8.0
+    analysis = st.session_state.get("analysis")
+    selected = st.session_state.get("selected_clips", [])
+    if analysis and selected:
+        clip = analysis.clips[selected[0]]
+        hook_font_size = max(20, min(50, int(getattr(clip, "hook_font_size", 20))))
+        hook_position = max(5.0, min(99.0, float(getattr(clip, "hook_position", 8.0))))
+
     # Create preset from current settings
     preset = ExportPreset(
         name=name,
@@ -38,7 +50,9 @@ def _save_current_preset(name: str):
         subtitle_style=st.session_state.subtitle_style,
         subtitle_color=st.session_state.subtitle_color,
         subtitle_font_size=st.session_state.font_size,
-        subtitle_position=st.session_state.subtitle_position
+        subtitle_position=st.session_state.subtitle_position,
+        hook_font_size=hook_font_size,
+        hook_position=hook_position
     )
     
     try:
@@ -404,6 +418,8 @@ def _apply_preset(preset: ExportPreset):
     Mapping preset fields to their session-state counterparts and calling
     ``st.rerun`` ensures the entire UI re-renders with the new values
     without requiring the user to interact with individual controls.
+    Hook size and position are also propagated to every loaded clip so that
+    the per-clip overrides are consistent with the chosen preset.
 
     Args:
         preset: The preset whose values should be applied to the current session.
@@ -415,6 +431,14 @@ def _apply_preset(preset: ExportPreset):
     st.session_state.font_size = preset.subtitle_font_size
     st.session_state.subtitle_position = preset.subtitle_position
     st.session_state.last_preset = preset.name.lower()
+
+    # Push hook defaults to all clips so the preset is fully reflected in preview/export.
+    analysis = st.session_state.get("analysis")
+    if analysis:
+        for clip in analysis.clips:
+            clip.hook_font_size = preset.hook_font_size
+            clip.hook_position = preset.hook_position
+
     st.rerun()
 
 
