@@ -12,6 +12,16 @@ import time
 from core.brain import ClipSuggestion
 from .shared import navigate_to_step, format_duration, format_timestamp
 
+
+def _ensure_clip_hook_settings(clip):
+    """Ensure hook-related editable attributes exist on a clip suggestion."""
+    if not hasattr(clip, "hook_enabled"):
+        clip.hook_enabled = bool(getattr(clip, "hook", "").strip())
+    if not hasattr(clip, "hook_font_size"):
+        clip.hook_font_size = 20
+    if not hasattr(clip, "hook_position"):
+        clip.hook_position = 8.0
+
 def on_global_change():
     """
     Callback for the global seek slider.
@@ -101,6 +111,9 @@ def render_step1_5_refine():
         st.session_state.editing_clips = deepcopy(st.session_state.analysis.clips)
 
     clips = st.session_state.editing_clips
+    for clip in clips:
+        _ensure_clip_hook_settings(clip)
+
     video_path = st.session_state.download_result.video_path
     total_duration = st.session_state.transcript_result.duration 
 
@@ -123,6 +136,7 @@ def render_step1_5_refine():
                 score=1.0,
                 reason="Manual"
             )
+            _ensure_clip_hook_settings(new_clip)
             clips.append(new_clip)
             st.session_state.active_clip_index = len(clips) - 1
             st.rerun()
@@ -310,7 +324,6 @@ def render_step1_5_refine():
             # Metadata inputs
             st.markdown("---")
             active_clip.title = st.text_input("Clip Title", value=active_clip.title)
-            active_clip.hook = st.text_input("Hook Text", value=active_clip.hook)
 
             # Delete
             st.markdown("")
@@ -322,6 +335,16 @@ def render_step1_5_refine():
                     st.rerun()
 
     with col_subtitles:
+        st.markdown("---")
+        st.markdown("### Hook Text")
+        st.caption("Edit only the hook sentence for this clip.")
+        active_clip.hook = st.text_input(
+            "Hook Text",
+            value=active_clip.hook,
+            placeholder="Three Drinks That Can Damage Your Brain",
+            key=f"hook_text_{st.session_state.active_clip_index}"
+        )
+
         st.markdown("---")
         st.markdown("### Edit Subtitles (Word by Word)")
         st.caption("Adjust the transcript words for this clip.")

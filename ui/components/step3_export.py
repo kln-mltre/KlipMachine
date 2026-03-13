@@ -11,10 +11,19 @@ import io
 
 from config import config
 from core.editor import ClipConfig, batch_export, sanitize_filename, normalize_crop_mode
-from core.transcriber import create_viral_subtitle_segments, export_ass, create_subtitle_segments, export_srt
+from core.transcriber import create_viral_subtitle_segments, export_ass, create_subtitle_segments, export_srt, create_hook_overlay_png
 from core.exceptions import KlipMachineError
 
 from .shared import navigate_to_step, format_duration
+
+
+def _get_clip_hook_settings(clip) -> tuple[bool, str, int, float]:
+    """Return normalized hook settings for export with backward-compatible defaults."""
+    hook_text = getattr(clip, "hook", "") or ""
+    hook_enabled = bool(getattr(clip, "hook_enabled", bool(hook_text.strip())))
+    hook_font_size = max(20, min(50, int(getattr(clip, "hook_font_size", 20))))
+    hook_position = max(5.0, min(99.0, float(getattr(clip, "hook_position", 8.0))))
+    return hook_enabled, hook_text, hook_font_size, hook_position
 
 
 def render_step3_export():
@@ -128,6 +137,8 @@ def _start_export():
         analysis = st.session_state.analysis
         selected_indices = st.session_state.selected_clips
         selected_clips = [analysis.clips[i] for i in selected_indices]
+        subtitle_style = st.session_state.subtitle_style
+        words = st.session_state.words
 
         clip_configs = [
             ClipConfig(
@@ -144,72 +155,113 @@ def _start_export():
         status_container.info("Exporting video clips...")
         with progress_container:
             progress_bar = st.progress(0)
+
+        first_pass_hook_overlays = None
+        if subtitle_style == "none":
+            hook_dir = output_dir / "hook_overlays"
+            first_pass_hook_overlays = []
+            for i, clip_data in enumerate(selected_clips, start=1):
+                hook_enabled, hook_text, hook_font_size, hook_position = _get_clip_hook_settings(clip_data)
+                if hook_enabled and hook_text.strip():
+                    overlay_path = create_hook_overlay_png(
+                        hook_text=hook_text,
+                        output_path=hook_dir / f"hook_{i:02d}.png",
+                        font_size=hook_font_size,
+                        top_position_percent=hook_position
+                    )
+                    first_pass_hook_overlays.append(overlay_path)
+                else:
+                    first_pass_hook_overlays.append(None)
         
         results = batch_export(
             video_path=st.session_state.download_result.video_path,
             clips=clip_configs,
             output_dir=output_dir,
             crop_mode=st.session_state.crop_mode,
-            blur_zoom=st.session_state.blur_zoom
+            blur_zoom=st.session_state.blur_zoom,
+            hook_overlays=first_pass_hook_overlays
         )
         
         progress_bar.progress(0.5)
 
-        words = st.session_state.words
-        subtitle_style = st.session_state.subtitle_style
+        subtitle_files = []
+        hook_overlays = []
+        should_burn_ass = False
 
-        if subtitle_style != "none":
-            status_container.info("Generating subtitles...")
-            progress_bar.progress(0.6)
+        status_container.info("Generating subtitles...")
+        progress_bar.progress(0.6)
 
-            subtitle_files = []
+        for clip_data, clip_config, export_result in zip(selected_clips, clip_configs, results):
+            if not export_result.success:
+                subtitle_files.append(None)
+                hook_overlays.append(None)
+                continue
 
-            for clip_config, export_result in zip(clip_configs, results):
-                if not export_result.success:
-                    subtitle_files.append(None)
-                    continue
+            hook_enabled, hook_text, hook_font_size, hook_position = _get_clip_hook_settings(clip_data)
+            has_hook = (subtitle_style != "none") and hook_enabled and bool(hook_text.strip())
 
-                # Expand the word window by the same margins used during extraction.
-                start_with_margin = max(0, clip_config.start - clip_config.margin_before)
-                end_with_margin = clip_config.end + clip_config.margin_after
+            # Expand the word window by the same margins used during extraction.
+            start_with_margin = max(0, clip_config.start - clip_config.margin_before)
+            end_with_margin = clip_config.end + clip_config.margin_after
+            clip_duration = end_with_margin - start_with_margin
 
-                clip_words = [
-                    w for w in words
-                    if start_with_margin <= w["start"] <= end_with_margin
+            clip_words = [
+                w for w in words
+                if start_with_margin <= w["start"] <= end_with_margin
+            ]
+
+            ass_path = export_result.output_path.with_suffix('.ass')
+            hook_overlay_path = None
+            mask_info_or_path = None
+            has_ass_payload = False
+
+            if has_hook:
+                hook_dir = output_dir / "hook_overlays"
+                hook_overlay_path = create_hook_overlay_png(
+                    hook_text=hook_text,
+                    output_path=hook_dir / f"hook_{export_result.output_path.stem}.png",
+                    font_size=hook_font_size,
+                    top_position_percent=hook_position
+                )
+
+            if subtitle_style != "none" and clip_words:
+                adjusted_words = [
+                    {
+                        "word": w["word"],
+                        "start": w["start"] - start_with_margin,
+                        "end": w["end"] - start_with_margin
+                    }
+                    for w in clip_words
                 ]
 
-                if clip_words:
-                    # Normalise timestamps so t=0 aligns with the clip's actual start after margin.
-                    adjusted_words = [
-                        {
-                            "word": w["word"],
-                            "start": w["start"] - start_with_margin,
-                            "end": w["end"] - start_with_margin
-                        }
-                        for w in clip_words
-                    ]
+                viral_segments = create_viral_subtitle_segments(adjusted_words, max_words=3)
+                mask_info_or_path = export_ass(
+                    segments=viral_segments,
+                    output_path=ass_path,
+                    style_type=subtitle_style,
+                    words=adjusted_words,
+                    font_size=st.session_state.font_size,
+                    v_position_percent=st.session_state.subtitle_position,
+                    # Hardcoded to 1920 — the canonical TikTok/Reels 9:16 height.
+                    video_height=1920,
+                    color_name=st.session_state.subtitle_color
+                )
+                has_ass_payload = True
 
-                    viral_segments = create_viral_subtitle_segments(adjusted_words, max_words=3)
+            if has_ass_payload and ass_path.exists():
+                subtitle_files.append((ass_path, mask_info_or_path))
+                should_burn_ass = True
+            else:
+                subtitle_files.append(None)
 
-                    ass_path = export_result.output_path.with_suffix('.ass')
-                    mask_info_or_path = export_ass(
-                        segments=viral_segments,
-                        output_path=ass_path,
-                        style_type=subtitle_style,
-                        words=adjusted_words,
-                        font_size=st.session_state.font_size,
-                        v_position_percent=st.session_state.subtitle_position,
-                        # Hardcoded to 1920 — the canonical TikTok/Reels 9:16 height.
-                        video_height=1920,
-                        color_name=st.session_state.subtitle_color
-                    )
-                    subtitle_files.append((ass_path, mask_info_or_path))
-                else:
-                    subtitle_files.append(None)
+            hook_overlays.append(hook_overlay_path)
 
-            progress_bar.progress(0.8)
+            if hook_overlay_path:
+                should_burn_ass = True
 
-            # Pass 2: re-encode clips with subtitles burned in.
+        progress_bar.progress(0.8)
+
+        if should_burn_ass:
             status_container.info("Burning subtitles into videos...")
 
             results = batch_export(
@@ -218,12 +270,13 @@ def _start_export():
                 output_dir=output_dir,
                 crop_mode=st.session_state.crop_mode,
                 blur_zoom=st.session_state.blur_zoom,
-                subtitle_files=subtitle_files
+                subtitle_files=subtitle_files,
+                hook_overlays=hook_overlays
             )
 
-        else:
-            # No subtitle burn-in: write plain SRT files for optional external use.
-            status_container.info("Generating SRT subtitles...")
+        if subtitle_style == "none":
+            # No dynamic subtitle burn-in requested: still provide optional SRT files.
+            status_container.info("Generating subtitles...")
             progress_bar.progress(0.8)
 
             for clip_config, export_result in zip(clip_configs, results):

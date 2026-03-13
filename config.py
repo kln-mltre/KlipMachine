@@ -2,6 +2,7 @@
 Handles paths, API keys, and default settings."""
 
 import os
+import ctypes
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Optional
@@ -47,15 +48,32 @@ class Config:
 
 def detect_gpu() -> str:
     """
-    Detect if CUDA GPU is available.
+    Detect if CUDA GPU is available and usable by Whisper runtime.
     
     Returns:
         "cuda" if NVIDIA GPU is available, otherwise "cpu"
     """
 
+    def cudnn_available() -> bool:
+        """Return True only when required cuDNN libs are loadable."""
+        candidates = [
+            "libcudnn_ops.so.9.1.0",
+            "libcudnn_ops.so.9.1",
+            "libcudnn_ops.so.9",
+            "libcudnn_ops.so",
+        ]
+        for lib in candidates:
+            try:
+                ctypes.CDLL(lib)
+                return True
+            except OSError:
+                continue
+        return False
+
+    cuda_ok = False
     try:
         import torch
-        return "cuda" if torch.cuda.is_available() else "cpu"
+        cuda_ok = torch.cuda.is_available()
     except ImportError:
         # If torch not installed, check nvidia-smi
         import subprocess
@@ -66,9 +84,15 @@ def detect_gpu() -> str:
                 check=True,
                 timeout=2
             )
-            return "cuda"
+            cuda_ok = True
         except (subprocess.CalledProcessError, FileNotFoundError, subprocess.TimeoutExpired):
-            return "cpu"
+            cuda_ok = False
+
+    if not cuda_ok:
+        return "cpu"
+
+    # Guard against runtime crashes when CUDA exists but cuDNN is missing/incompatible.
+    return "cuda" if cudnn_available() else "cpu"
             
 
 def verify_ffmpeg() -> bool:
@@ -101,8 +125,11 @@ def load_config() -> Config:
     for directory in [temp_dir, output_dir, log_dir, prompts_dir]:
         directory.mkdir(exist_ok=True)
 
-    # Detect GPU 
-    device = detect_gpu()
+    # Detect GPU and allow manual override.
+    detected_device = detect_gpu()
+    whisper_device = os.getenv("KLIPMACHINE_WHISPER_DEVICE", detected_device).lower()
+    if whisper_device not in {"cpu", "cuda"}:
+        whisper_device = detected_device
 
     return Config(
         # Directories
@@ -117,7 +144,7 @@ def load_config() -> Config:
 
         # Whisper 
         WHISPER_MODEL=os.getenv("KLIPMACHINE_WHISPER_MODEL", "base"),
-        WHISPER_DEVICE=device,
+        WHISPER_DEVICE=whisper_device,
 
         # LLM
         DEFAULT_PROVIDER=os.getenv("KLIPMACHINE_PROVIDER", "groq"),

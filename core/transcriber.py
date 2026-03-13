@@ -1212,6 +1212,217 @@ def export_ass(
     return None
 
 
+def _escape_ass_text(text: str) -> str:
+    """
+    Escape ASS-sensitive characters in plain text.
+
+    Args:
+        text: Raw text to render in ASS dialogue.
+
+    Returns:
+        Sanitized ASS-safe text.
+    """
+    if not text:
+        return ""
+
+    return text.replace("\\", r"\\").replace("{", r"\{").replace("}", r"\}").strip()
+
+
+def add_static_hook_to_ass(
+    ass_path: Path,
+    hook_text: str,
+    duration: float,
+    font_size: int = 56,
+    top_position_percent: float = 8.0
+) -> bool:
+    """
+    Append a TikTok-style static hook (white rounded-like box + black text) to an ASS file.
+
+    The hook remains visible for the full clip duration and is rendered top-center
+    with a solid white boxed background to mimic common TikTok headline overlays.
+
+    Args:
+        ass_path: Target ASS file path.
+        hook_text: Hook text to display.
+        duration: Display duration in seconds.
+        font_size: Hook font size in pixels.
+        top_position_percent: Vertical position from top of frame (0-100).
+
+    Returns:
+        True if a hook line was added, False otherwise.
+    """
+    safe_text = _escape_ass_text(hook_text)
+    if not safe_text or not ass_path.exists() or duration <= 0:
+        return False
+
+    with open(ass_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    cleaned_lines = []
+    for line in lines:
+        if line.startswith("Style: Hook,"):
+            continue
+        if ",Hook,," in line and line.startswith("Dialogue:"):
+            continue
+        cleaned_lines.append(line)
+
+    lines = cleaned_lines
+
+    style_index = next((i for i, line in enumerate(lines) if line.startswith("Style:")), None)
+    events_index = next((i for i, line in enumerate(lines) if line.strip() == "[Events]"), None)
+
+    if events_index is None:
+        return False
+
+    video_height = 1920
+    margin_v = int(video_height * (1 - (top_position_percent / 100)))
+
+    hook_style = (
+        f"Style: Hook,Montserrat ExtraBold,{int(font_size)},&H000000,&H000000,&H000000,&HFFFFFF,"
+        f"-1,0,0,0,100,100,0,0,4,0,0,8,40,40,{margin_v},1\n"
+    )
+
+    if style_index is not None:
+        insert_at = style_index
+        while insert_at < len(lines) and lines[insert_at].startswith("Style:"):
+            insert_at += 1
+        lines.insert(insert_at, hook_style)
+    else:
+        lines.insert(events_index, "[V4+ Styles]\n")
+        lines.insert(events_index + 1, "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n")
+        lines.insert(events_index + 2, hook_style)
+
+    hook_end = seconds_to_ass_time(duration)
+
+    # Add internal horizontal breathing room with non-breaking spaces.
+    padded_text = f"\\h\\h\\h{safe_text}\\h\\h\\h"
+
+    # ASS has no true border-radius for opaque boxes; this override softens corners
+    # and increases box padding to approximate the TikTok rounded card look.
+    hook_override = r"{\q2\bord0\shad0\blur0.8\xbord18\ybord10}"
+    hook_dialogue = f"Dialogue: 10,0:00:00.00,{hook_end},Hook,,0,0,0,,{hook_override}{padded_text}\n"
+
+    insert_dialogue_at = len(lines)
+    for i, line in enumerate(lines):
+        if line.strip() == "[Events]":
+            insert_dialogue_at = i + 1
+            while insert_dialogue_at < len(lines) and (
+                lines[insert_dialogue_at].startswith("Format:") or lines[insert_dialogue_at].startswith("Dialogue:")
+            ):
+                insert_dialogue_at += 1
+            break
+
+    lines.insert(insert_dialogue_at, hook_dialogue)
+
+    with open(ass_path, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+    return True
+
+
+def create_hook_overlay_png(
+    hook_text: str,
+    output_path: Path,
+    font_size: int = 20,
+    top_position_percent: float = 8.0,
+    target_width: int = 1080,
+    target_height: int = 1920
+) -> Optional[Path]:
+    """
+    Render a TikTok-style rounded white hook banner to a transparent PNG canvas.
+
+    Args:
+        hook_text: Hook text to render.
+        output_path: Destination PNG path.
+        font_size: User-facing size control (subtitle-like scale).
+        top_position_percent: Vertical position from top (0-100).
+        target_width: Output canvas width.
+        target_height: Output canvas height.
+
+    Returns:
+        Path to generated PNG, or None when text is empty.
+    """
+    if not hook_text or not hook_text.strip():
+        return None
+
+    text = " ".join(hook_text.strip().split())
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Convert subtitle-like slider units to headline-friendly pixel size.
+    render_font_size = max(34, int(font_size * 2.2))
+    line_spacing = max(6, int(render_font_size * 0.18))
+
+    font_path = Path(__file__).resolve().parent.parent / "assets" / "fonts" / "Montserrat-ExtraBold.otf"
+    try:
+        font = ImageFont.truetype(str(font_path), render_font_size)
+    except Exception:
+        font = ImageFont.load_default()
+
+    canvas = Image.new("RGBA", (target_width, target_height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(canvas)
+
+    max_text_width = int(target_width * 0.84)
+    words = text.split()
+    lines = []
+    current_line = []
+
+    for word in words:
+        candidate = " ".join(current_line + [word])
+        bbox = draw.textbbox((0, 0), candidate, font=font)
+        if (bbox[2] - bbox[0]) <= max_text_width or not current_line:
+            current_line.append(word)
+        else:
+            lines.append(" ".join(current_line))
+            current_line = [word]
+
+    if current_line:
+        lines.append(" ".join(current_line))
+
+    # Keep the banner compact; merge overflow into the final line.
+    if len(lines) > 3:
+        lines = lines[:2] + [" ".join(lines[2:])]
+
+    rendered_text = "\n".join(lines)
+    text_bbox = draw.multiline_textbbox(
+        (0, 0),
+        rendered_text,
+        font=font,
+        spacing=line_spacing,
+        align="center"
+    )
+    text_block_width = text_bbox[2] - text_bbox[0]
+    text_block_height = text_bbox[3] - text_bbox[1]
+
+    pad_x = max(20, int(render_font_size * 0.48))
+    pad_y = max(14, int(render_font_size * 0.34))
+    radius = max(18, int(render_font_size * 0.42))
+
+    box_width = text_block_width + (pad_x * 2)
+    box_height = text_block_height + (pad_y * 2)
+    box_x = (target_width - box_width) // 2
+    box_y = int(target_height * (top_position_percent / 100.0))
+
+    draw.rounded_rectangle(
+        [box_x, box_y, box_x + box_width, box_y + box_height],
+        radius=radius,
+        fill=(255, 255, 255, 245)
+    )
+
+    text_x = box_x + ((box_width - text_block_width) // 2) - text_bbox[0]
+    text_y = box_y + ((box_height - text_block_height) // 2) - text_bbox[1]
+    draw.multiline_text(
+        (text_x, text_y),
+        rendered_text,
+        font=font,
+        fill=(0, 0, 0, 255),
+        spacing=line_spacing,
+        align="center"
+    )
+
+    canvas.save(output_path)
+    return output_path
+
+
 def get_new_font_size(nb_words: int, fs: float) -> float:
     """
     Scale the base font size inversely with the word count of the segment.

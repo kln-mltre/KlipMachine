@@ -379,7 +379,7 @@ def build_ffmpeg_command(
     elif hw_accel == "videotoolbox":
         cmd.extend(["-c:v", "h264_videotoolbox", "-b:v", "5M"])
     else:
-        cmd.extend(["-c:v", "libx264", "-preset", "fast", "-crf", "23"])
+        cmd.extend(["-threads", "4", "-c:v", "libx264", "-preset", "fast", "-crf", "23"])
     
     # Audio codec
     cmd.extend(["-c:a", "aac", "-b:a", "128k"])
@@ -400,6 +400,7 @@ def extract_clip(
     blur_zoom: float = 1.08,
     subtitle_file: Optional[Path] = None,  # .ass subtitle file to burn into the clip
     mask_info: Optional[dict] = None,  # Per-word box-highlight timing metadata
+    hook_overlay_path: Optional[Path] = None,  # Static PNG overlay for TikTok-style hook banner
     hw_accel: Optional[str] = None,
     verbose: bool = False
 ) -> ExportResult:
@@ -417,6 +418,7 @@ def extract_clip(
         blur_zoom: Zoom factor applied in black/blur fill modes (default 1.08 = 8% zoom).
         subtitle_file: Optional path to an .ass file to burn into the output.
         mask_info: Optional per-word timing dict for box-highlight overlay pipeline.
+        hook_overlay_path: Optional transparent PNG overlay path for static hook text.
         hw_accel: Hardware encoder identifier ("nvenc", "videotoolbox", or None).
         verbose: When True, forwards FFmpeg stdout/stderr to the console.
 
@@ -480,6 +482,7 @@ def extract_clip(
                 subtitle_path=subtitle_file,
                 mask_info=mask_info,
                 mask_paths=mask_paths,
+                hook_overlay_path=hook_overlay_path,
                 crop_params=crop_params,
                 blur_filter=blur_filter,
                 hw_accel=hw_accel
@@ -491,10 +494,23 @@ def extract_clip(
                 start=start,
                 duration=duration,
                 subtitle_path=subtitle_file,
+                hook_overlay_path=hook_overlay_path,
                 crop_params=crop_params,
                 blur_filter=blur_filter,
                 hw_accel=hw_accel
             )
+    elif hook_overlay_path and hook_overlay_path.exists():
+        cmd = build_ffmpeg_command_with_subtitles(
+            input_path=video_path,
+            output_path=output_path,
+            start=start,
+            duration=duration,
+            subtitle_path=None,
+            hook_overlay_path=hook_overlay_path,
+            crop_params=crop_params,
+            blur_filter=blur_filter,
+            hw_accel=hw_accel
+        )
     else:
         cmd = build_ffmpeg_command(
             input_path=video_path,
@@ -552,6 +568,7 @@ def batch_export(
     crop_mode: str = "black",  
     blur_zoom: float = 1.08,
     subtitle_files: Optional[list[Optional[tuple[Path, dict]]]] = None,  # (ass_path, mask_info)
+    hook_overlays: Optional[list[Optional[Path]]] = None,
     progress_callback: Optional[Callable[[int, int], None]] = None
 ) -> list[ExportResult]:
     """
@@ -602,6 +619,7 @@ def batch_export(
         subtitle_data = subtitle_files[i-1] if subtitle_files and i-1 < len(subtitle_files) else (None, None)
         subtitle_file = subtitle_data[0] if subtitle_data else None
         mask_info = subtitle_data[1] if subtitle_data else None
+        hook_overlay = hook_overlays[i-1] if hook_overlays and i-1 < len(hook_overlays) else None
         
         result = extract_clip(
             video_path=video_path,
@@ -611,6 +629,7 @@ def batch_export(
             blur_zoom=blur_zoom,
             subtitle_file=subtitle_file,
             mask_info=mask_info,  
+            hook_overlay_path=hook_overlay,
             hw_accel=hw_accel,
             verbose=False
         )
@@ -634,7 +653,8 @@ def build_ffmpeg_command_with_subtitles(
     output_path: Path,
     start: float,
     duration: float,
-    subtitle_path: Path,
+    subtitle_path: Optional[Path],
+    hook_overlay_path: Optional[Path] = None,
     crop_params: Optional[dict] = None,
     blur_filter: Optional[str] = None,
     hw_accel: Optional[str] = None
@@ -647,7 +667,8 @@ def build_ffmpeg_command_with_subtitles(
         output_path: Destination file
         start: Start timestamp (seconds)
         duration: Clip duration (seconds)
-        subtitle_path: Path to .ass subtitle file
+        subtitle_path: Path to .ass subtitle file (or None)
+        hook_overlay_path: Optional static hook overlay PNG path
         crop_params: Crop parameters or None
         blur_filter: Pre-built blur filter or None
         hw_accel: Hardware acceleration ("nvenc", "videotoolbox", or None)
@@ -666,23 +687,58 @@ def build_ffmpeg_command_with_subtitles(
         "-t", str(duration)
     ])
 
-    subtitle_str = str(subtitle_path).replace('\\', '/').replace(':', r'\:')
-    
-    if blur_filter:
-        # Blur mode: append subtitle after blur overlay
-        filter_complex = f"{blur_filter},ass={subtitle_str}"
+    has_hook_overlay = hook_overlay_path is not None and hook_overlay_path.exists()
+    if has_hook_overlay:
+        cmd.extend(["-i", str(hook_overlay_path)])
+
+    subtitle_str = None
+    if subtitle_path and subtitle_path.exists():
+        subtitle_str = str(subtitle_path).replace('\\', '/').replace(':', r'\:')
+
+    if has_hook_overlay:
+        if blur_filter:
+            base_chain = blur_filter
+        elif crop_params:
+            base_chain = (
+                f"[0:v]crop={crop_params['w']}:{crop_params['h']}:{crop_params['x']}:{crop_params['y']},"
+                f"scale={config.OUTPUT_WIDTH}:{config.OUTPUT_HEIGHT}"
+            )
+        else:
+            base_chain = f"[0:v]scale={config.OUTPUT_WIDTH}:{config.OUTPUT_HEIGHT}"
+
+        if subtitle_str:
+            base_chain = f"{base_chain},ass={subtitle_str}"
+
+        filter_complex = (
+            f"{base_chain}[vbase];"
+            f"[vbase][1:v]overlay=0:0:format=auto:eof_action=repeat[out]"
+        )
         cmd.extend(["-filter_complex", filter_complex])
-    elif crop_params:
-        # Center crop mode: crop -> scale -> subtitle
-        filters = [
-            f"crop={crop_params['w']}:{crop_params['h']}:{crop_params['x']}:{crop_params['y']}",
-            f"scale={config.OUTPUT_WIDTH}:{config.OUTPUT_HEIGHT}",
-            f"ass={subtitle_str}"
-        ]
-        cmd.extend(["-vf", ",".join(filters)])
+        cmd.extend(["-map", "[out]"])
+        cmd.extend(["-map", "0:a"])
     else:
-        # No crop mode: just subtitle
-        cmd.extend(["-vf", f"ass={subtitle_str}"])
+        if subtitle_str is None:
+            if blur_filter:
+                cmd.extend(["-filter_complex", blur_filter])
+            elif crop_params:
+                filters = [
+                    f"crop={crop_params['w']}:{crop_params['h']}:{crop_params['x']}:{crop_params['y']}",
+                    f"scale={config.OUTPUT_WIDTH}:{config.OUTPUT_HEIGHT}",
+                ]
+                cmd.extend(["-vf", ",".join(filters)])
+        else:
+            if blur_filter:
+                filter_complex = f"{blur_filter},ass={subtitle_str}"
+                cmd.extend(["-filter_complex", filter_complex])
+            elif crop_params:
+                filters = [
+                    f"crop={crop_params['w']}:{crop_params['h']}:{crop_params['x']}:{crop_params['y']}",
+                    f"scale={config.OUTPUT_WIDTH}:{config.OUTPUT_HEIGHT}",
+                    f"ass={subtitle_str}"
+                ]
+                cmd.extend(["-vf", ",".join(filters)])
+            else:
+                cmd.extend(["-vf", f"ass={subtitle_str}"])
 
     # Video codec
     if hw_accel == "nvenc":
@@ -690,7 +746,7 @@ def build_ffmpeg_command_with_subtitles(
     elif hw_accel == "videotoolbox":
         cmd.extend(["-c:v", "h264_videotoolbox", "-b:v", "5M"])
     else:
-        cmd.extend(["-c:v", "libx264", "-preset", "fast", "-crf", "23"])
+        cmd.extend(["-threads", "4", "-c:v", "libx264", "-preset", "fast", "-crf", "23"])
     
     # Audio codec
     cmd.extend(["-c:a", "aac", "-b:a", "128k"])
@@ -713,6 +769,7 @@ def build_ffmpeg_command_with_box_highlights(
     subtitle_path: Path,
     mask_info: dict,
     mask_paths: dict,
+    hook_overlay_path: Optional[Path] = None,
     crop_params: Optional[dict] = None,
     blur_filter: Optional[str] = None,
     hw_accel: Optional[str] = None,
@@ -758,6 +815,12 @@ def build_ffmpeg_command_with_box_highlights(
     for i, key in enumerate(sorted_mask_keys):
         mask_path = mask_paths[key]
         cmd.extend(["-i", str(mask_path)])
+
+    has_hook_overlay = hook_overlay_path is not None and hook_overlay_path.exists()
+    hook_input_idx = None
+    if has_hook_overlay:
+        cmd.extend(["-i", str(hook_overlay_path)])
+        hook_input_idx = len(sorted_mask_keys) + 1
     
     # Extract the filter body from a pre-built blur string (strips the leading [0:v] label).
     if blur_filter:
@@ -810,9 +873,14 @@ def build_ffmpeg_command_with_box_highlights(
     # Colons in the path must be escaped for FFmpeg's filter syntax.
     subtitle_str = str(subtitle_path).replace('\\', '/').replace(':', r'\:')
     filter_complex += f"{current_label}ass={subtitle_str}[out]"
+
+    final_output_label = "[out]"
+    if has_hook_overlay and hook_input_idx is not None:
+        filter_complex += f";[out][{hook_input_idx}:v]overlay=0:0:format=auto:eof_action=repeat[out_hook]"
+        final_output_label = "[out_hook]"
     
     cmd.extend(["-filter_complex", filter_complex])
-    cmd.extend(["-map", "[out]"])
+    cmd.extend(["-map", final_output_label])
     cmd.extend(["-map", "0:a"])  
 
     # Select video encoder based on available hardware acceleration.
@@ -821,7 +889,7 @@ def build_ffmpeg_command_with_box_highlights(
     elif hw_accel == "videotoolbox":
         cmd.extend(["-c:v", "h264_videotoolbox", "-b:v", "5M"])
     else:
-        cmd.extend(["-c:v", "libx264", "-preset", "fast", "-crf", "23"])
+        cmd.extend(["-threads", "4", "-c:v", "libx264", "-preset", "fast", "-crf", "23"])
     
     # Audio codec
     cmd.extend(["-c:a", "aac", "-b:a", "128k"])

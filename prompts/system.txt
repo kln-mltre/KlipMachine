@@ -38,7 +38,6 @@ For each selected clip, generate `hook` as a TikTok on-screen text (NOT transcri
 - Must instantly give context + promise (what the viewer will get)
 - Short, clear, specific, natural
 - Same language as transcript
-- 25-65 characters preferred (hard max 80)
 - Emojis allowed if useful: 0 to 2 max
 - No hashtags
 - No quotes

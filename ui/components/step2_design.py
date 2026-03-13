@@ -11,7 +11,7 @@ import tempfile
 from config import config
 from core.preview import generate_preview_frame
 from core.presets import get_all_presets, ExportPreset
-from core.transcriber import create_viral_subtitle_segments, export_ass
+from core.transcriber import create_viral_subtitle_segments, export_ass, create_hook_overlay_png
 from core.editor import normalize_crop_mode
 
 from .shared import navigate_to_step, format_timestamp, format_duration
@@ -207,7 +207,7 @@ def render_step2_design():
             new_font_size = st.slider(
                 "font_size",
                 min_value=12,
-                max_value=30,
+                max_value=50,
                 value=st.session_state.font_size if st.session_state.font_size >= 12 else 12,
                 step=2,
                 label_visibility="collapsed"
@@ -222,7 +222,7 @@ def render_step2_design():
             st.markdown("**Vertical Position**")
             new_subtitle_position = st.slider(
                 "position",
-                min_value=87.0,
+                min_value=88.0,
                 max_value=99.0,
                 value=float(st.session_state.subtitle_position),
                 step=0.25,
@@ -294,6 +294,51 @@ def render_step2_design():
         if st.session_state.selected_clips:
             first_clip_idx = st.session_state.selected_clips[0]
             clip = clips[first_clip_idx]
+
+            hook_enabled, _, hook_font_size, hook_position = _get_clip_hook_settings(clip)
+
+            st.markdown("**Hook Overlay**")
+            new_hook_enabled = st.checkbox(
+                "Show Hook Text",
+                value=hook_enabled,
+                key=f"hook_enabled_step2_{first_clip_idx}"
+            )
+            if new_hook_enabled != hook_enabled:
+                clip.hook_enabled = new_hook_enabled
+                st.rerun()
+
+            st.markdown("**Hook Font Size**")
+            new_hook_font_size = st.slider(
+                "hook_font_size",
+                min_value=20,
+                max_value=50,
+                value=max(20, min(50, int(hook_font_size))),
+                step=2,
+                label_visibility="collapsed"
+            )
+            if new_hook_font_size != hook_font_size:
+                clip.hook_font_size = new_hook_font_size
+                st.rerun()
+
+            st.caption(f"Size: {new_hook_font_size}px")
+
+            st.markdown("**Hook Vertical Position**")
+
+            new_hook_position = st.slider(
+                "Hook Position",
+                min_value=5.0,
+                max_value=99.0,
+                value=float(hook_position),
+                step=0.25,
+                help="Distance from top of video frame",
+                key=f"hook_position_step2_{first_clip_idx}"
+            )
+            if abs(new_hook_position - hook_position) > 0.01:
+                clip.hook_position = new_hook_position
+                st.rerun()
+
+            st.caption(f"Hook position: {new_hook_position:.1f}% from top")
+            st.markdown("")
 
             st.markdown(f"**Preview: Clip {first_clip_idx + 1}**")
             st.caption(f"{clip.title} ({format_duration(clip.end - clip.start)})")
@@ -372,6 +417,20 @@ def _apply_preset(preset: ExportPreset):
     st.session_state.last_preset = preset.name.lower()
     st.rerun()
 
+
+def _get_clip_hook_settings(clip) -> tuple[bool, str, int, float]:
+    """Return normalized hook settings for a clip with backward-compatible defaults."""
+    hook_text = getattr(clip, "hook", "") or ""
+    hook_enabled = bool(getattr(clip, "hook_enabled", bool(hook_text.strip())))
+    hook_font_size = max(20, min(50, int(getattr(clip, "hook_font_size", 20))))
+    hook_position = max(5.0, min(99.0, float(getattr(clip, "hook_position", 8.0))))
+
+    clip.hook_enabled = hook_enabled
+    clip.hook_font_size = hook_font_size
+    clip.hook_position = hook_position
+
+    return hook_enabled, hook_text, hook_font_size, hook_position
+
 def _get_subtitle_timestamp(clip) -> float:
     """
     Return an absolute timestamp guaranteed to fall on an active subtitle.
@@ -440,8 +499,10 @@ def _generate_clip_preview(clip_idx: int, clip, show_ui: bool = False) -> Path:
         Path to the output JPEG, or ``None`` if generation failed.
     """
     # Hash all parameters that affect visual output to get a cache key.
-    preview_cache_version = "v2"
-    settings_hash = f"{preview_cache_version}_{clip_idx}_{st.session_state.crop_mode}_{st.session_state.blur_zoom:.2f}_{st.session_state.subtitle_style}_{st.session_state.subtitle_color}_{st.session_state.font_size}_{st.session_state.subtitle_position}_{show_ui}"
+    hook_enabled, hook_text, hook_font_size, hook_position = _get_clip_hook_settings(clip)
+
+    preview_cache_version = "v3"
+    settings_hash = f"{preview_cache_version}_{clip_idx}_{st.session_state.crop_mode}_{st.session_state.blur_zoom:.2f}_{st.session_state.subtitle_style}_{st.session_state.subtitle_color}_{st.session_state.font_size}_{st.session_state.subtitle_position}_{hook_enabled}_{hook_text}_{hook_font_size}_{hook_position:.1f}_{show_ui}"
     cache_key = f"preview_cache_{settings_hash}"
 
     if cache_key in st.session_state:
@@ -460,8 +521,18 @@ def _generate_clip_preview(clip_idx: int, clip, show_ui: bool = False) -> Path:
     mask_paths = None
     mask_info = None 
     time_offset = 0.0
+    hook_overlay_path = None
 
-    if st.session_state.subtitle_style != "none":
+    if hook_enabled and hook_text.strip():
+        hook_dir = temp_dir / "hook_overlays"
+        hook_overlay_path = create_hook_overlay_png(
+            hook_text=hook_text,
+            output_path=hook_dir / f"hook_preview_{clip_idx}.png",
+            font_size=hook_font_size,
+            top_position_percent=hook_position
+        )
+
+    if st.session_state.subtitle_style != "none" or (hook_enabled and hook_text.strip()):
         subtitle_path, mask_info, time_offset = _generate_preview_subtitle(clip_idx, clip, timestamp)
 
         if mask_info and mask_info.get("words"):
@@ -501,9 +572,20 @@ def _generate_clip_preview(clip_idx: int, clip, show_ui: bool = False) -> Path:
             show_tiktok_ui=False
         )
         if success:
+            if hook_overlay_path and hook_overlay_path.exists():
+                from PIL import Image
+
+                try:
+                    base_img = Image.open(output_path).convert("RGBA")
+                    hook_img = Image.open(hook_overlay_path).convert("RGBA")
+                    base_img.paste(hook_img, (0, 0), hook_img)
+                    base_img = base_img.convert("RGB")
+                    base_img.save(output_path, quality=95)
+                except Exception as e:
+                    print(f"[ERROR] Failed to apply hook overlay: {e}")
+
             if show_ui:
                 from PIL import Image
-                import os
 
                 overlay_path = Path("assets/tiktok_preview.png")
 
@@ -560,6 +642,7 @@ def _generate_preview_subtitle(clip_idx: int, clip, preview_timestamp: float) ->
         absolute start time of the first preview word.
     """
     words = st.session_state.words
+    hook_enabled, hook_text, hook_font_size, hook_position = _get_clip_hook_settings(clip)
 
     start_time = clip.start
     end_time = clip.end
@@ -568,6 +651,13 @@ def _generate_preview_subtitle(clip_idx: int, clip, preview_timestamp: float) ->
         w for w in words
         if start_time <= w["start"] <= end_time
     ]
+
+    temp_dir = Path(tempfile.gettempdir()) / "klipmachine_previews"
+    temp_dir.mkdir(exist_ok=True)
+    subtitle_path = temp_dir / f"preview_subtitle_{clip_idx}.ass"
+
+    if st.session_state.subtitle_style == "none":
+        return (None, None, 0.0)
     
     if not clip_words:
         st.warning(f"No words found for clip {clip_idx + 1}")
@@ -604,10 +694,6 @@ def _generate_preview_subtitle(clip_idx: int, clip, preview_timestamp: float) ->
         normalized_words = preview_words
 
     from core.transcriber import export_ass, create_viral_subtitle_segments
-
-    temp_dir = Path(tempfile.gettempdir()) / "klipmachine_previews"
-    temp_dir.mkdir(exist_ok=True)
-    subtitle_path = temp_dir / f"preview_subtitle_{clip_idx}.ass"
 
     segments = create_viral_subtitle_segments(normalized_words, max_words=3)
 
